@@ -672,3 +672,12 @@ textarea.input { resize: vertical; }
 .loading__lotus { animation: loadSpin 2.4s ease-in-out infinite; filter: drop-shadow(0 0 14px rgba(245, 200, 121, 0.7)); }
 @keyframes loadSpin { 0%, 100% { transform: scale(0.92) rotate(-6deg); opacity: 0.7; } 50% { transform: scale(1.06) rotate(6deg); opacity: 1; } }
 @keyframes loadPulse { 0%, 100% { opacity: 0.55; } 50% { opacity: 1; } }
+
+/* Ficha de libro: portada en miniatura junto al título */
+.entry__head--book { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 1.6rem; align-items: start; }
+.entry__bookcover { width: 150px; aspect-ratio: 2 / 3; object-fit: cover; border-radius: 4px 10px 10px 4px; box-shadow: -8px 10px 24px rgba(0, 0, 0, 0.5), 0 0 30px rgba(var(--u), 0.25), inset 0 0 0 1px rgba(255, 255, 255, 0.1); }
+.entry__head--book .entry__title { font-size: clamp(2rem, 4.6vw, 3.2rem); }
+@media (max-width: 560px) {
+  .entry__head--book { grid-template-columns: 96px minmax(0, 1fr); gap: 1rem; }
+  .entry__bookcover { width: 96px; }
+}

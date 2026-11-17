@@ -14,7 +14,7 @@ import { EntryCard } from "@/components/EntryCard";
 import { TypeIcon } from "@/components/TypeIcon";
 import { SymbolIcon } from "@/lib/symbols";
 import { ShopButtons } from "@/components/ShopButtons";
-import { AFFILIATE_NOTICE, buyLink, hasShopLinks } from "@/lib/shop";
+import { AFFILIATE_NOTICE, BOOK_TYPES, buyLink, hasShopLinks } from "@/lib/shop";
 import { shopConfig } from "@/lib/shop-config";
 
 export const dynamic = "force-dynamic";
@@ -67,6 +67,8 @@ export default async function ContenidoPage({ params }: Params) {
   const verse = entry.type === "poema" || entry.type === "cancion";
   const shop = shopConfig();
   const showShop = hasShopLinks(entry);
+  // Libros: la portada va en miniatura junto al título, no a lo ancho.
+  const bookCover = entry.cover && BOOK_TYPES.includes(entry.type) ? entry.cover : undefined;
   const colorOf = (e: Entry) => universes.find((u) => e.universeIds.includes(u.id))?.color ?? "#c9a7ff";
 
   return (
@@ -85,7 +87,12 @@ export default async function ContenidoPage({ params }: Params) {
         </div>
 
         <article className="page-enter">
-          <header className="entry__head">
+          <header className={`entry__head ${bookCover ? "entry__head--book" : ""}`}>
+            {bookCover && (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img src={bookCover} alt={`Portada de ${entry.title}`} className="entry__bookcover" />
+            )}
+            <div className="entry__headtext">
             <span className="kicker"><TypeIcon type={entry.type} size={15} /> {TYPE_LABELS[entry.type].singular}</span>
             <h1 className="display entry__title">{entry.title}</h1>
             {entry.summary && <p className="lead">{entry.summary}</p>}
@@ -110,9 +117,10 @@ export default async function ContenidoPage({ params }: Params) {
                 </Link>
               ))}
             </div>
+            </div>
           </header>
 
-          {entry.cover && (
+          {entry.cover && !bookCover && (
             <figure className="entry__cover">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={entry.cover} alt="" />

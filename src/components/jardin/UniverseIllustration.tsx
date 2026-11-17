@@ -360,6 +360,106 @@ function Fruit(p: P) {
   );
 }
 
+function Wellness(p: P) {
+  const { c, g, id } = p;
+  // Meditación: silueta con corazón luminoso en un anillo dorado, piedras, esterilla,
+  // loto, corazón con pulso, té humeante y hojas con rocío.
+  return (
+    <g>
+      <radialGradient id={id("heartglow")} cx="0.5" cy="0.5" r="0.5">
+        <stop offset="0" stopColor="#fffbe6" />
+        <stop offset="0.35" stopColor="#ffd77a" />
+        <stop offset="1" stopColor="#ffb347" stopOpacity="0" />
+      </radialGradient>
+      <linearGradient id={id("body")} x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stopColor="#5a3f8a" />
+        <stop offset="1" stopColor="#3a2766" />
+      </linearGradient>
+      <linearGradient id={id("mat")} x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stopColor="#c58cff" />
+        <stop offset="1" stopColor="#7a3fd0" />
+      </linearGradient>
+      <linearGradient id={id("stone")} x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stopColor="#9d93c9" />
+        <stop offset="1" stopColor="#5a5288" />
+      </linearGradient>
+      <linearGradient id={id("tea")} x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stopColor="#ffd56b" />
+        <stop offset="1" stopColor="#d98a1c" />
+      </linearGradient>
+      <linearGradient id={id("leafw")} x1="0" y1="1" x2="1" y2="0">
+        <stop offset="0" stopColor="#3f9a2f" />
+        <stop offset="1" stopColor="#c8f07a" />
+      </linearGradient>
+
+      {/* anillo dorado */}
+      <circle cx="100" cy="84" r="52" fill="none" stroke="#ffcf6b" strokeWidth="2.2" opacity="0.9" filter={`url(#${id("glow")})`} className="ill-pulse" />
+
+      {/* hojas de fondo */}
+      <path d="M38 70 C26 50 34 30 54 28 C58 50 50 64 38 70Z" fill={`url(#${id("leafw")})`} />
+      <path d="M50 78 C40 66 44 52 58 48 C62 62 58 72 50 78Z" fill={`url(#${id("leafw")})`} opacity="0.9" />
+      <path d="M162 60 C174 44 190 44 196 56 C184 68 170 70 162 60Z" fill={`url(#${id("leafw")})`} />
+      <path d="M150 50 C152 32 166 22 180 26 C176 42 164 52 150 50Z" fill={`url(#${id("leafw")})`} opacity="0.9" />
+
+      {/* piedras apiladas */}
+      <ellipse cx="44" cy="128" rx="24" ry="9" fill={`url(#${id("stone")})`} />
+      <ellipse cx="44" cy="114" rx="19" ry="8" fill={`url(#${id("stone")})`} />
+      <ellipse cx="44" cy="101" rx="14" ry="6.5" fill={`url(#${id("stone")})`} />
+      <ellipse cx="40" cy="98" rx="5" ry="1.6" fill="#fff" opacity="0.35" />
+
+      {/* esterilla enrollada */}
+      <rect x="22" y="134" width="70" height="20" rx="10" fill={`url(#${id("mat")})`} />
+      <circle cx="30" cy="144" r="10" fill={`url(#${id("mat")})`} stroke="#e3c4ff" strokeWidth="1" />
+      <circle cx="30" cy="144" r="5" fill="none" stroke="#e3c4ff" strokeWidth="1" />
+
+      {/* silueta en meditación */}
+      <g className="ill-float">
+        <circle cx="100" cy="50" r="11" fill={`url(#${id("body")})`} stroke="#ffcf6b" strokeOpacity="0.8" />
+        <circle cx="100" cy="37" r="5" fill={`url(#${id("body")})`} stroke="#ffcf6b" strokeOpacity="0.8" />
+        <path d="M86 64 C80 72 78 92 82 104 L118 104 C122 92 120 72 114 64 C108 60 92 60 86 64Z" fill={`url(#${id("body")})`} stroke="#ffcf6b" strokeOpacity="0.8" />
+        <path d="M86 70 C74 82 66 96 62 110 M114 70 C126 82 134 96 138 110" stroke={`url(#${id("body")})`} strokeWidth="8" strokeLinecap="round" fill="none" />
+        <path d="M86 70 C74 82 66 96 62 110 M114 70 C126 82 134 96 138 110" stroke="#ffcf6b" strokeOpacity="0.5" strokeWidth="1" fill="none" />
+        <path d="M58 118 C70 104 92 104 100 112 C108 104 130 104 142 118 C130 128 112 126 100 120 C88 126 70 128 58 118Z" fill={`url(#${id("body")})`} stroke="#ffcf6b" strokeOpacity="0.8" />
+        <circle cx="100" cy="80" r="16" fill={`url(#${id("heartglow")})`} className="ill-pulse" />
+        <path d="M100 87 C92 81 92 74 96 73 C98 72 100 74 100 75 C100 74 102 72 104 73 C108 74 108 81 100 87Z" fill="#fff6d0" />
+      </g>
+
+      {/* corazón con pulso */}
+      <g className="ill-pulse" style={{ animationDelay: "0.6s" }}>
+        <path d="M150 104 C134 92 132 78 142 75 C147 73 150 77 150 79 C150 77 153 73 158 75 C168 78 166 92 150 104Z" fill={c} stroke="#f0d6ff" strokeWidth="1" />
+        <path d="M137 86 L144 86 L147 80 L151 93 L154 86 L163 86" stroke="#fff" strokeWidth="1.6" fill="none" strokeLinejoin="round" />
+      </g>
+
+      {/* taza de té */}
+      <path d="M140 132 L178 132 L174 156 C172 162 146 162 144 156 Z" fill="#ffffff" fillOpacity="0.25" stroke="#fff" strokeOpacity="0.7" />
+      <path d="M142 138 L176 138 L173 154 C171 159 147 159 145 154 Z" fill={`url(#${id("tea")})`} opacity="0.9" />
+      <path d="M178 138 C188 138 188 152 176 152" stroke="#fff" strokeOpacity="0.7" strokeWidth="2" fill="none" />
+      <ellipse cx="160" cy="162" rx="26" ry="4" fill="#fff" opacity="0.25" />
+      <path d="M152 136 C160 128 168 130 166 138" fill="#5fbf5a" />
+      {[154, 162].map((x, i) => (
+        <path key={x} d={`M${x} 128 C${x - 5} 120 ${x + 5} 116 ${x} 108`} stroke="#fff" strokeWidth="1.6" fill="none" strokeLinecap="round" opacity="0.6" className="ill-rise" style={{ animationDelay: `${i * 1.2}s` }} />
+      ))}
+
+      {/* arándanos */}
+      {[[62, 158], [76, 162]].map(([x, y], i) => (
+        <g key={i}><circle cx={x} cy={y} r="8" fill="#4a4fa8" /><circle cx={x - 2.5} cy={y - 2.5} r="2" fill="#fff" opacity="0.5" /><path d={`M${x - 2} ${y - 7} L${x} ${y - 5} L${x + 2} ${y - 7}`} stroke="#2b2c6a" strokeWidth="1" fill="none" /></g>
+      ))}
+
+      {/* loto */}
+      <g transform="translate(108 152)">
+        {[-50, -25, 0, 25, 50].map((a) => (
+          <path key={a} d="M0 0 C-6 -8 -6 -18 0 -26 C6 -18 6 -8 0 0Z" transform={`rotate(${a})`} fill={a === 0 ? "#f3c4ff" : g} stroke="#fff" strokeOpacity="0.5" strokeWidth="0.6" />
+        ))}
+        <circle cx="0" cy="-6" r="4" fill="#ffd77a" />
+      </g>
+
+      {[[70, 36], [134, 30], [184, 110], [20, 100]].map(([x, y], i) => (
+        <circle key={i} cx={x} cy={y} r="1.8" fill="#fff" className="ill-twinkle" style={{ animationDelay: `${i * 0.5}s` }} />
+      ))}
+    </g>
+  );
+}
+
 const BY_SYMBOL: Record<string, (p: P) => React.JSX.Element> = {
   loto: Lotus,
   libro: BookTree,
@@ -369,6 +469,7 @@ const BY_SYMBOL: Record<string, (p: P) => React.JSX.Element> = {
   chip: Geometry,
   hoja: Leaf,
   fruta: Fruit,
+  bienestar: Wellness,
   arbol: Leaf,
   paleta: Butterfly,
   bombilla: Sprout,

@@ -1,7 +1,7 @@
 import {
   BookOpen, Feather, Music, Atom, Cpu, Leaf, Palette, Lightbulb, Library, Sparkles,
   Moon, Sun, Star, Flower2, Compass, Telescope, Globe2, Heart, Eye, Infinity as InfinityIcon,
-  Mountain, Waves, TreePine, Gem, Key, Apple, type LucideIcon,
+  Mountain, Waves, TreePine, Gem, Key, Apple, HeartPulse, type LucideIcon,
 } from "lucide-react";
 
 export const SYMBOLS: Record<string, { label: string; Icon: LucideIcon }> = {
@@ -14,6 +14,7 @@ export const SYMBOLS: Record<string, { label: string; Icon: LucideIcon }> = {
   chip: { label: "Chip", Icon: Cpu },
   hoja: { label: "Hoja", Icon: Leaf },
   fruta: { label: "Fruta", Icon: Apple },
+  bienestar: { label: "Bienestar", Icon: HeartPulse },
   arbol: { label: "Árbol", Icon: TreePine },
   paleta: { label: "Paleta", Icon: Palette },
   bombilla: { label: "Bombilla", Icon: Lightbulb },

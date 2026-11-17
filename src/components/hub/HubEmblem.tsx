@@ -2,7 +2,7 @@ import { SymbolIcon } from "@/lib/symbols";
 
 /** Emblema del encabezado: hoja brillante para universos de naturaleza/nutrición; icono en orbe para el resto. */
 export function HubEmblem({ symbol }: { symbol: string }) {
-  if (["fruta", "hoja", "arbol"].includes(symbol)) {
+  if (["fruta", "hoja", "arbol", "bienestar"].includes(symbol)) {
     return (
       <svg viewBox="0 0 100 100" className="hub__emblem" aria-hidden>
         <defs>

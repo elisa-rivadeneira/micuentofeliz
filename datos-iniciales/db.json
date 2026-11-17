@@ -151,11 +151,11 @@
       "id": "u_mwjr0zgyqhsidu",
       "gardenId": "jardin-personal",
       "createdAt": "2026-11-16T21:01:37.810Z",
-      "updatedAt": "2026-11-16T23:27:34.025Z",
-      "slug": "nutricion",
-      "name": "Nutrición",
-      "tagline": "Lo que nos nutre también nos cuenta",
-      "description": "Alimentos, recetas, hábitos y la ciencia de nutrir el cuerpo. Comer como un acto de cuidado y de conexión con la tierra.",
+      "updatedAt": "2026-11-17T00:49:45.149Z",
+      "slug": "bienestar",
+      "name": "Bienestar y estilo de vida",
+      "tagline": "Cuerpo, mente y hábitos que nos sostienen",
+      "description": "Nutrición, movimiento, descanso y calma: hábitos para vivir más y mejor. Empezamos por la nutrición.",
       "color": "#a6e04f",
       "glow": "#effcc4",
       "symbol": "fruta",
@@ -177,7 +177,10 @@
           "biblioteca",
           "recetas"
         ]
-      }
+      },
+      "oldSlugs": [
+        "nutricion"
+      ]
     }
   ],
   "entries": [

@@ -14,6 +14,7 @@ import { EVIDENCE_LABELS, STATUS_LABELS } from "@/lib/labels";
 import { SECTIONS, TRACKABLE_TYPES } from "@/lib/sections";
 import { SectionArt, type ArtImage } from "./SectionArt";
 import { LibraryCard } from "./LibraryCard";
+import { AFFILIATE_NOTICE, hasShopLinks, type ShopConfig } from "@/lib/shop";
 
 const TAB_ICONS: Record<string, typeof Layers> = {
   todo: Layers, videos: PlayCircle, libros: BookOpen, podcasts: Headphones, articulos: FileText, estudios: FlaskConical,
@@ -28,6 +29,7 @@ interface Props {
   entries: Entry[];
   initialTab?: string;
   art?: ArtImage;
+  shop: ShopConfig;
 }
 
 function Group({ title, icon: Icon, children, defaultOpen = true }: { title: string; icon: typeof Layers; children: React.ReactNode; defaultOpen?: boolean }) {
@@ -49,7 +51,7 @@ function Group({ title, icon: Icon, children, defaultOpen = true }: { title: str
   );
 }
 
-export function SectionLibrary({ universe: u, hubTitle, sectionKey, entries: initial, initialTab, art }: Props) {
+export function SectionLibrary({ universe: u, hubTitle, sectionKey, entries: initial, initialTab, art, shop }: Props) {
   const section = SECTIONS[sectionKey];
   const [entries, setEntries] = useState(initial);
   const [tab, setTab] = useState(section.tabs.some((t) => t.key === initialTab) ? initialTab! : "todo");
@@ -234,7 +236,7 @@ export function SectionLibrary({ universe: u, hubTitle, sectionKey, entries: ini
               <AnimatePresence mode="popLayout" initial={false}>
                 {results.map((e) => (
                   <motion.div key={e.id} layout initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, scale: 0.97 }} transition={{ duration: 0.25 }}>
-                    <LibraryCard entry={e} list={view === "list"} onChange={onCardChange} />
+                    <LibraryCard entry={e} list={view === "list"} onChange={onCardChange} shop={shop} />
                   </motion.div>
                 ))}
               </AnimatePresence>
@@ -242,6 +244,7 @@ export function SectionLibrary({ universe: u, hubTitle, sectionKey, entries: ini
           )}
         </section>
       </div>
+      {shop.amazonTag && results.some((e) => hasShopLinks(e)) && <p className="affiliate-note">{AFFILIATE_NOTICE}</p>}
       {filtersOpen && <div className="lfilters__scrim" onClick={() => setFiltersOpen(false)} />}
     </div>
   );

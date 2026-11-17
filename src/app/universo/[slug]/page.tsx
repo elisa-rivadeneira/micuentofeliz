@@ -2,7 +2,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { ArrowLeft } from "lucide-react";
-import { getSnapshot, getUniverseBySlug } from "@/lib/db";
+import { getSnapshot, getUniverseByOldSlug, getUniverseBySlug } from "@/lib/db";
+import { redirect } from "next/navigation";
 import { tagCounts } from "@/lib/graph";
 import { hexToRgb } from "@/lib/util";
 import { Door } from "@/components/Door";
@@ -24,7 +25,11 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 export default async function UniversoPage({ params }: Params) {
   const { slug } = await params;
   const universe = await getUniverseBySlug(slug);
-  if (!universe) notFound();
+  if (!universe) {
+    const moved = await getUniverseByOldSlug(slug);
+    if (moved) redirect(`/universo/${moved.slug}`);
+    notFound();
+  }
   const { universes, entries } = await getSnapshot();
   if (universe.hub) return <LearningHub universe={universe} entries={entries} visuals={hubVisuals()} />;
   const inside = entries.filter((e) => e.universeIds.includes(universe.id));

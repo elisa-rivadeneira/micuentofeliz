@@ -7,6 +7,8 @@ import type { Entry, ReadStatus } from "@/lib/types";
 import { TYPE_LABELS, EVIDENCE_LABELS, STATUS_LABELS } from "@/lib/labels";
 import { youtubeThumb, TRACKABLE_TYPES } from "@/lib/sections";
 import { TypeIcon } from "../TypeIcon";
+import { ShopButtons } from "../ShopButtons";
+import { hasShopLinks, type ShopConfig } from "@/lib/shop";
 
 const COVER_PALETTES = [
   ["#f5efe2", "#2e5d34"], ["#fdf6e9", "#7a3b1d"], ["#eef3f7", "#1f3b5c"], ["#fff8ec", "#8b2f3a"],
@@ -58,7 +60,7 @@ async function patch(id: string, body: object) {
 }
 
 /** Tarjeta de videoteca: miniatura, tipo, título, autor, evidencia, valoración, guardado y estado. */
-export function LibraryCard({ entry, list, onChange }: { entry: Entry; list?: boolean; onChange?: (e: Entry) => void }) {
+export function LibraryCard({ entry, list, onChange, shop }: { entry: Entry; list?: boolean; onChange?: (e: Entry) => void; shop?: ShopConfig }) {
   const [e, setE] = useState(entry);
   const status: ReadStatus = e.status ?? "por-ver";
   const StatusIcon = STATUS_ICON[status];
@@ -105,6 +107,7 @@ export function LibraryCard({ entry, list, onChange }: { entry: Entry; list?: bo
             <span className="lcard__rating" aria-label={`Valoración ${e.rating} de 5`}><Star size={15} fill="currentColor" /> {e.rating.toFixed(1)}</span>
           ) : null}
         </div>
+        {shop && hasShopLinks(e) && <ShopButtons entry={e} shop={shop} compact />}
       </div>
       <button
         type="button"

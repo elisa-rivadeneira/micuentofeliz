@@ -50,9 +50,9 @@ const UNIVERSES: U[] = [
     color: "#7fd67a", glow: "#d6ffcf", symbol: "hoja", doorStyle: "ojival", order: 6,
   },
   {
-    id: "u_nutricion", slug: "nutricion", name: "Nutrición",
-    tagline: "Lo que nos nutre también nos cuenta",
-    description: "Alimentos, recetas, hábitos y la ciencia de nutrir el cuerpo. Comer como un acto de cuidado y de conexión con la tierra.",
+    id: "u_nutricion", slug: "bienestar", name: "Bienestar y estilo de vida",
+    tagline: "Cuerpo, mente y hábitos que nos sostienen",
+    description: "Nutrición, movimiento, descanso y calma: hábitos para vivir más y mejor. Empezamos por la nutrición.",
     color: "#a6e04f", glow: "#effcc4", symbol: "fruta", doorStyle: "medio-punto", order: 7,
     hub: nutricion.hub as HubConfig,
   },

@@ -6,6 +6,7 @@ import { HubBackdrop } from "./HubBackdrop";
 import { SectionArt, type ArtImage } from "./SectionArt";
 import { HubEmblem } from "./HubEmblem";
 import { LibraryCard } from "./LibraryCard";
+import { shopConfig } from "@/lib/shop-config";
 import "./hub.css";
 
 const STEP_ICONS = [BookOpen, Search, Layers, Sprout];
@@ -100,7 +101,7 @@ export function LearningHub({ universe: u, entries, visuals }: { universe: Unive
               <Link href={`/universo/${u.slug}/videoteca`} className="hub__more">Ver videoteca <ArrowRight size={15} /></Link>
             </div>
             <div className="lib-grid">
-              {shelf.map((e) => <LibraryCard key={e.id} entry={e} />)}
+              {shelf.map((e) => <LibraryCard key={e.id} entry={e} shop={shopConfig()} />)}
             </div>
           </section>
         )}

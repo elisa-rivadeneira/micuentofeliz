@@ -97,6 +97,12 @@ export async function getUniverseBySlug(slug: string): Promise<Universe | undefi
   return db.universes.find((u) => u.slug === slug && u.gardenId === PERSONAL_GARDEN);
 }
 
+/** Universo que antes tenía esta dirección (para redirigir enlaces viejos). */
+export async function getUniverseByOldSlug(slug: string): Promise<Universe | undefined> {
+  const db = await readDb();
+  return db.universes.find((u) => u.gardenId === PERSONAL_GARDEN && u.oldSlugs?.includes(slug));
+}
+
 export async function getEntries(gardenId: GardenId = PERSONAL_GARDEN): Promise<Entry[]> {
   const db = await readDb();
   return db.entries
@@ -152,9 +158,22 @@ function cleanEntry(input: EntryInput, db: Database, existing?: Entry) {
     author: input.author?.trim() || undefined,
     source: input.source?.trim() || undefined,
     externalUrl: input.externalUrl?.trim() || undefined,
+    buyUrl: cleanUrl(input.buyUrl),
+    borrowUrl: cleanUrl(input.borrowUrl),
     featured: Boolean(input.featured),
     ...cleanTracking(input),
   };
+}
+
+function cleanUrl(raw?: string): string | undefined {
+  const v = raw?.trim();
+  if (!v) return undefined;
+  try {
+    const u = new URL(/^https?:\/\//i.test(v) ? v : `https://${v}`);
+    return u.protocol === "http:" || u.protocol === "https:" ? u.toString() : undefined;
+  } catch {
+    return undefined;
+  }
 }
 
 function cleanTracking(input: EntryPatch & { duration?: string }) {
@@ -242,6 +261,7 @@ function cleanUniverse(input: UniverseInput, db: Database, existing?: Universe) 
     doorStyle: input.doorStyle || "ojival",
     order: Number.isFinite(Number(input.order)) ? Number(input.order) : db.universes.length + 1,
     hidden: Boolean(input.hidden),
+    image: input.image?.trim() || undefined,
     hub: cleanHub(input.hub),
   };
 }
@@ -262,7 +282,12 @@ export function updateUniverse(id: string, input: UniverseInput): Promise<Univer
     const db = await readDb();
     const idx = db.universes.findIndex((u) => u.id === id);
     if (idx < 0) return undefined;
-    const next: Universe = { ...db.universes[idx], ...cleanUniverse(input, db, db.universes[idx]), updatedAt: new Date().toISOString() };
+    const prev = db.universes[idx];
+    const next: Universe = { ...prev, ...cleanUniverse(input, db, prev), updatedAt: new Date().toISOString() };
+    // Si cambia la dirección, recordamos la anterior para que los enlaces viejos sigan funcionando.
+    const old = new Set([...(prev.oldSlugs ?? []), ...(prev.slug !== next.slug ? [prev.slug] : [])]);
+    old.delete(next.slug);
+    next.oldSlugs = old.size ? [...old] : undefined;
     db.universes[idx] = next;
     await writeDb(db);
     return next;

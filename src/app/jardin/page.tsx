@@ -10,5 +10,6 @@ export default async function JardinPage() {
   const { universes, entries } = await getSnapshot();
   const counts: Record<string, number> = {};
   for (const u of universes) counts[u.id] = entries.filter((e) => e.universeIds.includes(u.id)).length;
-  return <GardenExperience universes={universes} counts={counts} background={findImage("jardines-fondo")} />;
+  const withImages = universes.map((u) => ({ ...u, image: u.image || findImage(`universos/${u.slug}`) }));
+  return <GardenExperience universes={withImages} counts={counts} background={findImage("jardines-fondo")} />;
 }

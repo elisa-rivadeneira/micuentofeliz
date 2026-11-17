@@ -1,9 +1,10 @@
 import { notFound, redirect } from "next/navigation";
 import type { Metadata } from "next";
-import { getSnapshot, getUniverseBySlug } from "@/lib/db";
+import { getSnapshot, getUniverseByOldSlug, getUniverseBySlug } from "@/lib/db";
 import { SECTIONS, SECTION_ALIASES, inSection } from "@/lib/sections";
 import type { SectionKey } from "@/lib/types";
 import { hubVisuals } from "@/lib/hub-visuals";
+import { shopConfig } from "@/lib/shop-config";
 import { HubBackdrop } from "@/components/hub/HubBackdrop";
 import { SectionLibrary } from "@/components/hub/SectionLibrary";
 import { hubTitle } from "@/components/hub/LearningHub";
@@ -29,6 +30,10 @@ export default async function SeccionPage({ params, searchParams }: Params) {
   const { slug, seccion } = await params;
   const { tab } = await searchParams;
   if (SECTION_ALIASES[seccion]) redirect(`/universo/${slug}/${SECTION_ALIASES[seccion]}`);
+  if (!(await getUniverseBySlug(slug))) {
+    const moved = await getUniverseByOldSlug(slug);
+    if (moved) redirect(`/universo/${moved.slug}/${seccion}`);
+  }
   const r = await load(slug, seccion);
   if (!r) notFound();
   const { universe, section } = r;
@@ -46,6 +51,7 @@ export default async function SeccionPage({ params, searchParams }: Params) {
           entries={items}
           initialTab={tab}
           art={visuals.art[section.key]}
+          shop={shopConfig()}
         />
       </div>
     </main>

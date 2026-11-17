@@ -59,7 +59,12 @@ export function HoloCard({ universe: u, index, total, count, active, onSelect, o
         <span>{count} {count === 1 ? "pieza" : "piezas"}</span>
       </div>
       <div className="holo__art">
-        <UniverseIllustration symbol={u.symbol} color={u.color} glow={u.glow} />
+        {u.image ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={u.image} alt="" className="holo__img" draggable={false} />
+        ) : (
+          <UniverseIllustration symbol={u.symbol} color={u.color} glow={u.glow} />
+        )}
       </div>
       <h2 className="holo__title">{u.name}</h2>
       <AnimatePresence initial={false}>

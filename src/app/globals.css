@@ -655,3 +655,13 @@ textarea.input { resize: vertical; }
 .track--prometedor { color: #ffd88a; border-color: rgba(255, 200, 100, 0.45); background: rgba(200, 140, 30, 0.15); }
 .track--opinion { color: #ffb0c4; border-color: rgba(255, 150, 180, 0.45); background: rgba(200, 60, 100, 0.15); }
 .track--rating { color: #ffd66b; }
+
+/* Dónde conseguirlo (ficha de libro) */
+.entry__shop { margin-top: 2rem; padding: 1.3rem 1.4rem; border-radius: 20px; background: rgba(14, 16, 50, 0.6); border: 1px solid var(--line); }
+.entry__shop h2 { margin: 0 0 0.8rem; font-family: var(--display); font-style: italic; font-weight: 500; font-size: 1.5rem; color: #f6ead2; }
+.entry__shop .shop { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.entry__shop .shop__btn { display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.7rem 1.3rem; border-radius: 999px; font-family: var(--sans); font-weight: 600; font-size: 0.98rem; }
+.entry__shop .shop__btn--buy { color: #2b1a00; background: linear-gradient(180deg, #ffd88a, #f5b041); }
+.entry__shop .shop__btn--borrow { color: #fff; background: rgba(124, 77, 255, 0.85); }
+.affiliate-note--dark { margin: 0.8rem 0 0; font-family: var(--sans); font-size: 0.75rem; color: var(--muted); }
+.shop-help a { color: var(--gold); text-decoration: underline; text-underline-offset: 2px; }

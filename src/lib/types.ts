@@ -48,6 +48,10 @@ export interface Universe {
   doorStyle: DoorStyle;
   order: number;
   hidden?: boolean;
+  /** Ilustración propia para su tarjeta en Jardines (si no, se usa el dibujo del símbolo). */
+  image?: string;
+  /** Direcciones anteriores: los enlaces viejos redirigen a la nueva. */
+  oldSlugs?: string[];
   /** Si existe, el universo se muestra como centro de aprendizaje (ver lib/sections). */
   hub?: HubConfig;
   createdAt: string;
@@ -82,6 +86,10 @@ export interface Entry {
   author?: string;
   source?: string;
   externalUrl?: string;
+  /** Enlace para comprar (p. ej. Amazon; se le añade la etiqueta de afiliado). */
+  buyUrl?: string;
+  /** Enlace para pedir prestado (p. ej. archive.org / Open Library). */
+  borrowUrl?: string;
   featured?: boolean;
   /** Seguimiento (videoteca y demás secciones). */
   evidence?: Evidence;

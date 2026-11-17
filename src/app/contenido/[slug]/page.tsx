@@ -13,6 +13,9 @@ import { MediaView } from "@/components/MediaView";
 import { EntryCard } from "@/components/EntryCard";
 import { TypeIcon } from "@/components/TypeIcon";
 import { SymbolIcon } from "@/lib/symbols";
+import { ShopButtons } from "@/components/ShopButtons";
+import { AFFILIATE_NOTICE, buyLink, hasShopLinks } from "@/lib/shop";
+import { shopConfig } from "@/lib/shop-config";
 
 export const dynamic = "force-dynamic";
 
@@ -62,6 +65,8 @@ export default async function ContenidoPage({ params }: Params) {
   const related = relatedTo(entry, entries, universes, 10).filter((r) => !directIds.has(r.entry.id)).slice(0, 6);
   const thread = followThread(entry, entries);
   const verse = entry.type === "poema" || entry.type === "cancion";
+  const shop = shopConfig();
+  const showShop = hasShopLinks(entry);
   const colorOf = (e: Entry) => universes.find((u) => e.universeIds.includes(u.id))?.color ?? "#c9a7ff";
 
   return (
@@ -121,6 +126,14 @@ export default async function ContenidoPage({ params }: Params) {
             <a href={entry.externalUrl} target="_blank" rel="noreferrer" className="btn btn--gold entry__external">
               <ExternalLink size={16} /> Visitar enlace
             </a>
+          )}
+
+          {showShop && (
+            <section className="entry__shop">
+              <h2>Dónde conseguirlo</h2>
+              <ShopButtons entry={entry} shop={shop} />
+              {buyLink(entry, shop).sponsored && <p className="affiliate-note affiliate-note--dark">{AFFILIATE_NOTICE}</p>}
+            </section>
           )}
 
           {entry.tags.length > 0 && (

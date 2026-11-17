@@ -242,3 +242,13 @@
 @media (prefers-reduced-motion: reduce) {
   .dawn__rays, .dawn__branch, .dawn__mist, .dawn__flower { animation: none; }
 }
+
+/* ───────────── Comprar / Préstamo ───────────── */
+.shop { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.shop__btn { display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.6rem 1.1rem; border-radius: 999px; font-family: var(--sans); font-weight: 600; font-size: 0.95rem; transition: transform 0.25s var(--ease), box-shadow 0.25s, background 0.25s; }
+.shop__btn:hover { transform: translateY(-1px); }
+.shop__btn--buy { color: #2b1a00; background: linear-gradient(180deg, #ffd88a, #f5b041); box-shadow: 0 6px 16px -6px rgba(245, 176, 65, 0.8); }
+.shop__btn--borrow { color: #fff; background: rgba(124, 77, 255, 0.85); box-shadow: 0 6px 16px -6px rgba(124, 77, 255, 0.8); }
+.shop--compact { position: relative; z-index: 2; gap: 0.35rem; margin-top: 0.45rem; }
+.shop--compact .shop__btn { padding: 0.28rem 0.65rem; font-size: 0.74rem; gap: 0.3rem; }
+.affiliate-note { margin: 1rem 0 0; font-family: var(--sans); font-size: 0.74rem; color: rgba(255, 255, 255, 0.75); text-align: center; text-shadow: 0 1px 6px rgba(10, 6, 40, 0.6); }

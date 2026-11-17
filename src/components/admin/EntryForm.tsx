@@ -9,6 +9,7 @@ import { CONTENT_TYPES, EVIDENCE_LEVELS, READ_STATUSES } from "@/lib/types";
 import type { Evidence, ReadStatus } from "@/lib/types";
 import { TYPE_LABELS, EVIDENCE_LABELS, STATUS_LABELS } from "@/lib/labels";
 import { normalizeTag, newId } from "@/lib/util";
+import { searchUrls } from "@/lib/shop";
 import { SymbolIcon } from "@/lib/symbols";
 import { Prose } from "../Prose";
 import { TypeIcon } from "../TypeIcon";
@@ -24,7 +25,7 @@ interface Props {
 
 const EMPTY: EntryInput = {
   slug: "", title: "", type: "reflexion", summary: "", body: "", universeIds: [], tags: [], relatedIds: [],
-  media: [], cover: "", author: "", source: "", externalUrl: "", featured: false,
+  media: [], cover: "", author: "", source: "", externalUrl: "", buyUrl: "", borrowUrl: "", featured: false,
 };
 
 export function EntryForm({ entry, universes, entries, presetUniverse, presetType }: Props) {
@@ -272,6 +273,25 @@ export function EntryForm({ entry, universes, entries, presetUniverse, presetTyp
                 <input type="file" hidden accept="image/*" onChange={(e) => e.target.files?.[0] && doUpload(e.target.files[0], "cover")} />
               </label>
             </div>
+          </div>
+
+          <div className="field panel">
+            <span>Dónde conseguirlo <small>(libros)</small></span>
+            <label className="field"><span>Comprar · Amazon</span>
+              <input type="url" value={f.buyUrl ?? ""} onChange={(e) => set("buyUrl", e.target.value)} placeholder="https://www.amazon.com/dp/…" className="input" />
+            </label>
+            <label className="field"><span>Préstamo · archive.org</span>
+              <input type="url" value={f.borrowUrl ?? ""} onChange={(e) => set("borrowUrl", e.target.value)} placeholder="https://archive.org/details/…" className="input" />
+            </label>
+            {f.title && (
+              <small className="muted shop-help">
+                Buscar el enlace exacto:{" "}
+                <a href={searchUrls(f).amazon} target="_blank" rel="noreferrer">Amazon</a> ·{" "}
+                <a href={searchUrls(f).archive} target="_blank" rel="noreferrer">archive.org</a> ·{" "}
+                <a href={searchUrls(f).openLibrary} target="_blank" rel="noreferrer">Open Library</a>
+              </small>
+            )}
+            <small className="muted">Si los dejas vacíos, el libro mostrará una búsqueda con su título y autor.</small>
           </div>
 
           <div className="field panel">

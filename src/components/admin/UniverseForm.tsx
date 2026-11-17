@@ -3,14 +3,14 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { ArrowLeft, Save, Trash2 } from "lucide-react";
+import { ArrowLeft, Save, Trash2, Upload, Sparkles } from "lucide-react";
 import type { Universe, UniverseInput, DoorStyle, HubConfig, SectionKey } from "@/lib/types";
 import { DOOR_STYLES, SECTION_KEYS } from "@/lib/types";
 import { SECTIONS } from "@/lib/sections";
 import { DOOR_STYLE_LABELS } from "@/lib/labels";
 import { SYMBOLS, SymbolIcon } from "@/lib/symbols";
 import { Door } from "../Door";
-import { api } from "./api";
+import { api, uploadFile } from "./api";
 
 const EMPTY: UniverseInput = {
   slug: "", name: "", tagline: "", description: "", color: "#b58cff", glow: "#f5d79a", symbol: "destellos", doorStyle: "ojival", order: 99, hidden: false,
@@ -20,6 +20,7 @@ export function UniverseForm({ universe, nextOrder }: { universe?: Universe; nex
   const router = useRouter();
   const [f, setF] = useState<UniverseInput>(() => (universe ? { ...EMPTY, ...universe } : { ...EMPTY, order: nextOrder }));
   const [saving, setSaving] = useState(false);
+  const [uploading, setUploading] = useState(false);
   const [error, setError] = useState("");
   const set = <K extends keyof UniverseInput>(k: K, v: UniverseInput[K]) => setF((p) => ({ ...p, [k]: v }));
   const setHub = (patch: Partial<HubConfig>) => setF((p) => ({ ...p, hub: { sections: [], ...p.hub, ...patch } }));
@@ -91,6 +92,28 @@ export function UniverseForm({ universe, nextOrder }: { universe?: Universe; nex
               ))}
             </div>
           </fieldset>
+
+          <div className="field">
+            <span>Ilustración de la tarjeta <small>(PNG o WebP con fondo transparente; si la dejas vacía se usa el dibujo del símbolo)</small></span>
+            <div className="field__row">
+              <input value={f.image ?? ""} onChange={(e) => set("image", e.target.value)} placeholder="/images/universos/mi-universo.png" className="input" />
+              <label className="icon-btn" title="Subir imagen">
+                {uploading ? <Sparkles size={17} className="spin" /> : <Upload size={17} />}
+                <input
+                  type="file"
+                  hidden
+                  accept="image/png,image/webp,image/avif,image/gif,image/jpeg"
+                  onChange={async (e) => {
+                    const file = e.target.files?.[0];
+                    if (!file) return;
+                    setUploading(true);
+                    setError("");
+                    try { set("image", (await uploadFile(file)).url); } catch (err) { setError((err as Error).message); } finally { setUploading(false); }
+                  }}
+                />
+              </label>
+            </div>
+          </div>
 
           <label className="check"><input type="checkbox" checked={Boolean(f.hidden)} onChange={(e) => set("hidden", e.target.checked)} /> Ocultar del jardín (borrador)</label>
 

@@ -49,6 +49,24 @@ function migrate(db: Database): Database {
   for (const u of db.universes) {
     if (u.hub) u.hub.sections = [...new Set(u.hub.sections.map((k) => SECTION_ALIASES[k] ?? k))].filter((k) => SECTION_KEYS.includes(k));
   }
+  const done = new Set(db.migrations ?? []);
+  // 2026-11: "Nutrición" pasa a ser "Bienestar y estilo de vida" (una sola vez; luego se respeta lo que edites).
+  if (!done.has("nutricion-a-bienestar")) {
+    const u = db.universes.find((x) => x.slug === "nutricion" && x.symbol === "fruta");
+    if (u && !db.universes.some((x) => x.slug === "bienestar")) {
+      u.name = "Bienestar y estilo de vida";
+      u.slug = "bienestar";
+      u.oldSlugs = [...new Set([...(u.oldSlugs ?? []), "nutricion"])];
+      u.symbol = "bienestar";
+      u.color = "#b98aff";
+      u.glow = "#ffe2a8";
+      u.tagline = "Cuerpo, mente y hábitos que nos sostienen";
+      u.description = "Nutrición, movimiento, descanso y calma: hábitos para vivir más y mejor. Empezamos por la nutrición.";
+      if (u.hub && !u.hub.title) u.hub.title = "Nutrición";
+    }
+    done.add("nutricion-a-bienestar");
+    db.migrations = [...done];
+  }
   return db;
 }
 

@@ -130,6 +130,8 @@ export interface Database {
   gardens: { id: GardenId; name: string; ownerName: string; createdAt: string }[];
   universes: Universe[];
   entries: Entry[];
+  /** Ajustes de datos ya aplicados (cada uno se aplica una sola vez). */
+  migrations?: string[];
 }
 
 export type UniverseInput = Omit<Universe, "id" | "gardenId" | "createdAt" | "updatedAt"> & { id?: string };

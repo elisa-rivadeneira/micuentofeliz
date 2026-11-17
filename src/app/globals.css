@@ -665,3 +665,10 @@ textarea.input { resize: vertical; }
 .entry__shop .shop__btn--borrow { color: #fff; background: rgba(124, 77, 255, 0.85); }
 .affiliate-note--dark { margin: 0.8rem 0 0; font-family: var(--sans); font-size: 0.75rem; color: var(--muted); }
 .shop-help a { color: var(--gold); text-decoration: underline; text-underline-offset: 2px; }
+
+/* Pantalla de carga */
+.loading { position: relative; z-index: 3; min-height: 60vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; color: var(--gold-soft); font-family: var(--sans); font-size: 1rem; letter-spacing: 0.04em; }
+.loading p { margin: 0; animation: loadPulse 1.6s ease-in-out infinite; }
+.loading__lotus { animation: loadSpin 2.4s ease-in-out infinite; filter: drop-shadow(0 0 14px rgba(245, 200, 121, 0.7)); }
+@keyframes loadSpin { 0%, 100% { transform: scale(0.92) rotate(-6deg); opacity: 0.7; } 50% { transform: scale(1.06) rotate(6deg); opacity: 1; } }
+@keyframes loadPulse { 0%, 100% { opacity: 0.55; } 50% { opacity: 1; } }

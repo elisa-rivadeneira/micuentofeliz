@@ -53,7 +53,7 @@ const UNIVERSES: U[] = [
     id: "u_nutricion", slug: "bienestar", name: "Bienestar y estilo de vida",
     tagline: "Cuerpo, mente y hábitos que nos sostienen",
     description: "Nutrición, movimiento, descanso y calma: hábitos para vivir más y mejor. Empezamos por la nutrición.",
-    color: "#b98aff", glow: "#ffe2a8", symbol: "bienestar", doorStyle: "medio-punto", order: 7,
+    color: "#b98aff", glow: "#ffe2a8", symbol: "bienestar", doorStyle: "medio-punto", order: 0,
     hub: nutricion.hub as HubConfig,
   },
   {

@@ -17,7 +17,7 @@ interface Props {
 
 /**
  * Tarjeta holográfica de un universo: solo ilustración y título.
- * Un clic en una tarjeta lateral la trae al centro; un clic en la central abre el universo.
+ * Un solo clic en cualquier tarjeta abre su universo (las flechas, los puntos y el arrastre la mueven).
  */
 export function HoloCard({ universe: u, index, total, count, active, onSelect, onEnter }: Props) {
   const inner = useRef<HTMLDivElement>(null);
@@ -48,7 +48,7 @@ export function HoloCard({ universe: u, index, total, count, active, onSelect, o
       style={{ ["--c" as string]: hexToRgb(u.color), ["--g" as string]: hexToRgb(u.glow) }}
       onPointerMove={onMove}
       onPointerLeave={onLeave}
-      onClick={() => (active ? onEnter() : onSelect())}
+      onClick={() => onEnter()}
       onKeyDown={(e) => {
         if (active && (e.key === "Enter" || e.key === " ")) {
           e.preventDefault();
@@ -56,11 +56,11 @@ export function HoloCard({ universe: u, index, total, count, active, onSelect, o
           onEnter();
         }
       }}
-      role={active ? "link" : "group"}
+      role="link"
       tabIndex={active ? 0 : -1}
       aria-roledescription="universo"
-      aria-label={`${u.name}, universo ${index + 1} de ${total}, ${count} ${count === 1 ? "pieza" : "piezas"}${active ? ". Entrar" : ""}`}
-      title={active ? `Entrar a ${u.name}` : u.name}
+      aria-label={`${u.name}, universo ${index + 1} de ${total}, ${count} ${count === 1 ? "pieza" : "piezas"}. Entrar`}
+      title={`Entrar a ${u.name}`}
     >
       <span className="holo__border" aria-hidden />
       <span className="holo__sheen" aria-hidden />

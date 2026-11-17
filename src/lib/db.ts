@@ -67,6 +67,16 @@ function migrate(db: Database): Database {
     done.add("nutricion-a-bienestar");
     db.migrations = [...done];
   }
+  // 2026-11: Bienestar es el primer universo (el que aparece centrado al entrar a Jardines).
+  if (!done.has("bienestar-primero")) {
+    const u = db.universes.find((x) => x.slug === "bienestar");
+    if (u) {
+      const min = Math.min(...db.universes.filter((x) => x.gardenId === u.gardenId).map((x) => x.order));
+      if (u.order > min) u.order = min - 1;
+    }
+    done.add("bienestar-primero");
+    db.migrations = [...done];
+  }
   return db;
 }
 

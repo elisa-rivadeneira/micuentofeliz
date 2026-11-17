@@ -94,7 +94,7 @@ export function UniverseCarousel({ universes, counts, active, onActiveChange }: 
     const s = start.current;
     if (!s || s.id !== e.pointerId) return;
     const dx = e.clientX - s.x;
-    if (!moved.current && Math.abs(dx) > 8 && Math.abs(dx) > Math.abs(e.clientY - s.y)) {
+    if (!moved.current && Math.abs(dx) > (e.pointerType === "mouse" ? 24 : 14) && Math.abs(dx) > Math.abs(e.clientY - s.y)) {
       moved.current = true;
       (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
     }

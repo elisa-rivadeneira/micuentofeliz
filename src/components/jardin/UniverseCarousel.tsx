@@ -1,6 +1,9 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+
+// useLayoutEffect en el navegador (mide antes de pintar); useEffect en el servidor.
+const useIsoLayoutEffect = typeof window === "undefined" ? useEffect : useLayoutEffect;
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -20,9 +23,10 @@ interface Layout {
 /** Escritorio: 5 tarjetas + asomo de las siguientes. Tablet: 3. Móvil: 1 + vecinas. */
 function layoutFor(w: number, h: number): Layout {
   // La altura disponible también limita el tamaño (encabezado + barra inferior).
-  const byHeight = Math.max(220, (h - (h < 860 ? 470 : 560)) * 0.88);
-  if (w >= 1100) return { cardW: Math.round(Math.min(360, byHeight, Math.max(270, w * 0.21))), ratio: 0.88, steps: [0, 0.95, 1.72, 2.5], visible: 3 };
-  if (w >= 700) return { cardW: Math.round(Math.min(340, byHeight, w * 0.36)), ratio: 0.86, steps: [0, 0.98, 1.75], visible: 2 };
+  // Tarjetas solo con ilustración y título: más anchas y tan grandes como permita la pantalla.
+  const byHeight = Math.max(240, (h - (h < 860 ? 400 : 450)) * 0.92);
+  if (w >= 1100) return { cardW: Math.round(Math.min(400, byHeight, Math.max(280, w * 0.24))), ratio: 0.92, steps: [0, 0.95, 1.72, 2.5], visible: 3 };
+  if (w >= 700) return { cardW: Math.round(Math.min(360, byHeight, w * 0.4)), ratio: 0.9, steps: [0, 0.98, 1.75], visible: 2 };
   return { cardW: Math.round(Math.min(280, w * 0.7, Math.max(220, (h - 460) * 0.78))), ratio: 0.78, steps: [0, 0.92, 1.7], visible: 2 };
 }
 
@@ -41,16 +45,18 @@ interface Props {
 export function UniverseCarousel({ universes, counts, active, onActiveChange }: Props) {
   const router = useRouter();
   const n = universes.length;
-  const [layout, setLayout] = useState<Layout>({ cardW: 320, ratio: 0.88, steps: [0, 0.95, 1.72, 2.5], visible: 3 });
+  const [layout, setLayout] = useState<Layout>({ cardW: 360, ratio: 0.92, steps: [0, 0.95, 1.72, 2.5], visible: 3 });
+  const [ready, setReady] = useState(false);
   const [drag, setDrag] = useState(0);
   const [leaving, setLeaving] = useState<Universe | null>(null);
   const start = useRef<{ x: number; y: number; id: number } | null>(null);
   const moved = useRef(false);
   const wheel = useRef({ acc: 0, lock: 0 });
 
-  useEffect(() => {
+  useIsoLayoutEffect(() => {
     const onResize = () => setLayout(layoutFor(window.innerWidth, window.innerHeight));
     onResize();
+    setReady(true);
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
   }, []);
@@ -125,7 +131,7 @@ export function UniverseCarousel({ universes, counts, active, onActiveChange }: 
   const current = universes[active];
 
   return (
-    <section className="carousel" aria-roledescription="carrusel" aria-label="Universos del jardín" style={{ ["--cw" as string]: `${layout.cardW}px`, ["--ar" as string]: layout.ratio }}>
+    <section className={`carousel ${ready ? "is-ready" : ""}`} aria-roledescription="carrusel" aria-label="Universos del jardín" style={{ ["--cw" as string]: `${layout.cardW}px`, ["--ar" as string]: layout.ratio }}>
       <div
         className="carousel__stage"
         tabIndex={0}

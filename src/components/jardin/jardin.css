@@ -272,3 +272,19 @@
 .holo__title { margin: 0.4rem 0 0.2rem; }
 .holo.is-active .holo__title { font-size: calc(var(--cw) * 0.09); }
 .holo:focus-visible { outline: 2px solid rgba(var(--g), 0.95); outline-offset: 6px; }
+
+/* Sin salto al cargar: el carrusel aparece cuando ya está medido y en su orden. */
+.carousel { animation: none; opacity: 0; }
+.carousel.is-ready { opacity: 1; animation: rise 1s var(--ease) 0.15s backwards; }
+
+/* Menos aire bajo las tarjetas para que quepan grandes sin tocar la barra inferior. */
+.carousel__stage { height: calc(var(--cw) / var(--ar, 0.92) + 30px); }
+.carousel__arrow { top: calc((var(--cw, 360px) / var(--ar, 0.92) + 30px) / 2); }
+.carousel__pool { bottom: -14px; }
+.carousel__dots { margin-top: 0.35rem; }
+.gx__world { margin-top: 0.4rem; }
+@media (max-height: 800px) {
+  .gx__content { padding-top: 76px; padding-bottom: 96px; }
+  .gh__desc { font-size: 0.88rem; }
+  .gh__title { font-size: clamp(1.9rem, 3.6vw, 2.8rem); }
+}

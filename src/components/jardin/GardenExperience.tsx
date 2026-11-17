@@ -1,6 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
+
+const useIsoLayoutEffect = typeof window === "undefined" ? useEffect : useLayoutEffect;
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { X, Sparkles } from "lucide-react";
@@ -18,8 +20,8 @@ export function GardenExperience({ universes, counts, background }: { universes:
   const [active, setActive] = useState(0);
   const [showAll, setShowAll] = useState(false);
 
-  // Recordar el último universo visitado durante la sesión.
-  useEffect(() => {
+  // Recordar el último universo visitado durante la sesión (antes de pintar, sin salto).
+  useIsoLayoutEffect(() => {
     try {
       const v = Number(sessionStorage.getItem(ACTIVE_STORE_KEY));
       if (Number.isInteger(v) && v >= 0 && v < universes.length) setActive(v);

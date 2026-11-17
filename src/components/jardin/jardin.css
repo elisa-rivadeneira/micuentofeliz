@@ -266,3 +266,9 @@
 /* Ilustración propia del universo (imagen con fondo transparente). */
 .holo__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; pointer-events: none; filter: drop-shadow(0 0 18px rgba(var(--c), 0.45)) drop-shadow(0 10px 18px rgba(0, 0, 0, 0.35)); animation: illFloat 6s ease-in-out infinite; animation-play-state: paused; }
 .holo.is-active .holo__img, .holo:hover .holo__img { animation-play-state: running; }
+
+/* Tarjeta solo con ilustración y título: más aire para la imagen. */
+.holo { padding-top: calc(var(--cw) * 0.07); }
+.holo__title { margin: 0.4rem 0 0.2rem; }
+.holo.is-active .holo__title { font-size: calc(var(--cw) * 0.09); }
+.holo:focus-visible { outline: 2px solid rgba(var(--g), 0.95); outline-offset: 6px; }

@@ -1,8 +1,6 @@
 "use client";
 
 import { useRef } from "react";
-import { ArrowRight } from "lucide-react";
-import { AnimatePresence, motion } from "framer-motion";
 import type { Universe } from "@/lib/types";
 import { hexToRgb } from "@/lib/util";
 import { UniverseIllustration } from "./UniverseIllustration";
@@ -17,7 +15,10 @@ interface Props {
   onEnter: () => void;
 }
 
-/** Tarjeta holográfica de un universo (HTML real: cristal, borde luminoso, ilustración, título y botón). */
+/**
+ * Tarjeta holográfica de un universo: solo ilustración y título.
+ * Un clic en una tarjeta lateral la trae al centro; un clic en la central abre el universo.
+ */
 export function HoloCard({ universe: u, index, total, count, active, onSelect, onEnter }: Props) {
   const inner = useRef<HTMLDivElement>(null);
 
@@ -48,16 +49,21 @@ export function HoloCard({ universe: u, index, total, count, active, onSelect, o
       onPointerMove={onMove}
       onPointerLeave={onLeave}
       onClick={() => (active ? onEnter() : onSelect())}
-      role="group"
+      onKeyDown={(e) => {
+        if (active && (e.key === "Enter" || e.key === " ")) {
+          e.preventDefault();
+          e.stopPropagation();
+          onEnter();
+        }
+      }}
+      role={active ? "link" : "group"}
+      tabIndex={active ? 0 : -1}
       aria-roledescription="universo"
-      aria-label={`${index + 1} de ${total}: ${u.name}`}
+      aria-label={`${u.name}, universo ${index + 1} de ${total}, ${count} ${count === 1 ? "pieza" : "piezas"}${active ? ". Entrar" : ""}`}
+      title={active ? `Entrar a ${u.name}` : u.name}
     >
       <span className="holo__border" aria-hidden />
       <span className="holo__sheen" aria-hidden />
-      <div className="holo__top">
-        <span>{String(index + 1).padStart(2, "0")}</span>
-        <span>{count} {count === 1 ? "pieza" : "piezas"}</span>
-      </div>
       <div className="holo__art">
         {u.image ? (
           // eslint-disable-next-line @next/next/no-img-element
@@ -67,20 +73,6 @@ export function HoloCard({ universe: u, index, total, count, active, onSelect, o
         )}
       </div>
       <h2 className="holo__title">{u.name}</h2>
-      <AnimatePresence initial={false}>
-        {active && (
-          <motion.div className="holo__more" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 6 }} transition={{ duration: 0.35, delay: 0.1 }}>
-            {u.tagline && <p className="holo__tagline">{u.tagline}</p>}
-            <button
-              type="button"
-              className="holo__cta"
-              onClick={(e) => { e.stopPropagation(); onEnter(); }}
-            >
-              Entrar al jardín <ArrowRight size={16} strokeWidth={1.8} />
-            </button>
-          </motion.div>
-        )}
-      </AnimatePresence>
       <span className="holo__reflection" aria-hidden />
     </div>
   );

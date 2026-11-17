@@ -1,0 +1,790 @@
+{
+  "version": 1,
+  "gardens": [
+    {
+      "id": "jardin-personal",
+      "name": "Mi Cuento Feliz",
+      "ownerName": "Yo",
+      "createdAt": "2026-11-16T20:02:49.422Z"
+    }
+  ],
+  "universes": [
+    {
+      "id": "u_sabiduria",
+      "slug": "sabiduria-y-espiritualidad",
+      "name": "Sabiduría y espiritualidad",
+      "tagline": "El silencio que guarda las respuestas",
+      "description": "Tradiciones, maestros, prácticas y preguntas que no caben en una sola vida. Un templo de luz violeta donde lo invisible tiene lugar.",
+      "color": "#b58cff",
+      "glow": "#e6d2ff",
+      "symbol": "loto",
+      "doorStyle": "lobulado",
+      "order": 1,
+      "gardenId": "jardin-personal",
+      "createdAt": "2026-11-01T20:00:00.000Z",
+      "updatedAt": "2026-11-01T20:00:00.000Z"
+    },
+    {
+      "id": "u_historias",
+      "slug": "historias-y-literatura",
+      "name": "Historias y literatura",
+      "tagline": "Cuentos que encienden faroles",
+      "description": "Cuentos, relatos, personajes y mundos. Lo que leo, lo que escribo y lo que alguien me contó una noche.",
+      "color": "#f0b75e",
+      "glow": "#ffe1a8",
+      "symbol": "libro",
+      "doorStyle": "medio-punto",
+      "order": 2,
+      "gardenId": "jardin-personal",
+      "createdAt": "2026-11-02T03:00:00.000Z",
+      "updatedAt": "2026-11-02T03:00:00.000Z"
+    },
+    {
+      "id": "u_poesia",
+      "slug": "poesia-y-musica",
+      "name": "Poesía y música",
+      "tagline": "Donde el aliento se vuelve canto",
+      "description": "Versos, canciones, ritmos y sonidos. La palabra que respira y la música que dice lo que no se puede decir.",
+      "color": "#ff7fbf",
+      "glow": "#ffd0e8",
+      "symbol": "musica",
+      "doorStyle": "herradura",
+      "order": 3,
+      "gardenId": "jardin-personal",
+      "createdAt": "2026-11-02T10:00:00.000Z",
+      "updatedAt": "2026-11-02T10:00:00.000Z"
+    },
+    {
+      "id": "u_ciencia",
+      "slug": "ciencia-y-descubrimientos",
+      "name": "Ciencia y descubrimientos",
+      "tagline": "Preguntar al universo con paciencia",
+      "description": "Física, biología, cosmos y la maravilla de entender cómo funcionan las cosas.",
+      "color": "#5ec8ff",
+      "glow": "#c8ecff",
+      "symbol": "atomo",
+      "doorStyle": "medio-punto",
+      "order": 4,
+      "gardenId": "jardin-personal",
+      "createdAt": "2026-11-02T17:00:00.000Z",
+      "updatedAt": "2026-11-02T17:00:00.000Z"
+    },
+    {
+      "id": "u_tecnologia",
+      "slug": "tecnologia-e-inteligencia-artificial",
+      "name": "Tecnología e inteligencia artificial",
+      "tagline": "Herramientas que piensan con nosotros",
+      "description": "Código, máquinas, inteligencia artificial y las nuevas formas de crear y conocer.",
+      "color": "#56e3c4",
+      "glow": "#c6fff0",
+      "symbol": "chip",
+      "doorStyle": "cerradura",
+      "order": 5,
+      "gardenId": "jardin-personal",
+      "createdAt": "2026-11-03T00:00:00.000Z",
+      "updatedAt": "2026-11-03T00:00:00.000Z"
+    },
+    {
+      "id": "u_naturaleza",
+      "slug": "naturaleza-y-vida",
+      "name": "Naturaleza y vida",
+      "tagline": "Raíces, estaciones y criaturas",
+      "description": "Bosques, animales, ciclos y la vida que se abre paso. El jardín que nos enseña a habitar.",
+      "color": "#7fd67a",
+      "glow": "#d6ffcf",
+      "symbol": "hoja",
+      "doorStyle": "ojival",
+      "order": 6,
+      "gardenId": "jardin-personal",
+      "createdAt": "2026-11-03T07:00:00.000Z",
+      "updatedAt": "2026-11-03T07:00:00.000Z"
+    },
+    {
+      "id": "u_arte",
+      "slug": "arte-y-creatividad",
+      "name": "Arte y creatividad",
+      "tagline": "El color de lo que aún no existe",
+      "description": "Pintura, imagen, diseño y todo gesto creativo. Mis obras y las de quienes me inspiran.",
+      "color": "#ff9a5c",
+      "glow": "#ffd9bf",
+      "symbol": "paleta",
+      "doorStyle": "lobulado",
+      "order": 8,
+      "gardenId": "jardin-personal",
+      "createdAt": "2026-11-03T14:00:00.000Z",
+      "updatedAt": "2026-11-16T21:01:37.766Z",
+      "hidden": false
+    },
+    {
+      "id": "u_ideas",
+      "slug": "ideas-y-proyectos",
+      "name": "Ideas y proyectos",
+      "tagline": "Semillas esperando su estación",
+      "description": "Lo que estoy construyendo, lo que sueño construir y las chispas que todavía no tienen forma.",
+      "color": "#ffd84d",
+      "glow": "#fff2b8",
+      "symbol": "bombilla",
+      "doorStyle": "ojival",
+      "order": 9,
+      "gardenId": "jardin-personal",
+      "createdAt": "2026-11-03T21:00:00.000Z",
+      "updatedAt": "2026-11-16T21:01:37.702Z",
+      "hidden": false
+    },
+    {
+      "id": "u_biblioteca",
+      "slug": "mi-biblioteca-de-inspiraciones",
+      "name": "Mi biblioteca de inspiraciones",
+      "tagline": "Los libros, voces y lugares que me formaron",
+      "description": "Libros, autores, enlaces, películas y referencias que vuelvo a visitar.",
+      "color": "#9aa8ff",
+      "glow": "#dde2ff",
+      "symbol": "biblioteca",
+      "doorStyle": "herradura",
+      "order": 10,
+      "gardenId": "jardin-personal",
+      "createdAt": "2026-11-04T04:00:00.000Z",
+      "updatedAt": "2026-11-16T21:01:37.620Z",
+      "hidden": false
+    },
+    {
+      "id": "u_mwjr0zgyqhsidu",
+      "gardenId": "jardin-personal",
+      "createdAt": "2026-11-16T21:01:37.810Z",
+      "updatedAt": "2026-11-16T23:27:34.025Z",
+      "slug": "nutricion",
+      "name": "Nutrición",
+      "tagline": "Lo que nos nutre también nos cuenta",
+      "description": "Alimentos, recetas, hábitos y la ciencia de nutrir el cuerpo. Comer como un acto de cuidado y de conexión con la tierra.",
+      "color": "#a6e04f",
+      "glow": "#effcc4",
+      "symbol": "fruta",
+      "doorStyle": "medio-punto",
+      "order": 7,
+      "hidden": false,
+      "hub": {
+        "title": "Nutrición",
+        "highlight": "Saludable",
+        "subtitle": "Aprende, organiza y aplica el conocimiento de una nutrición antiinflamatoria y de longevidad.",
+        "journey": [
+          "Aprender",
+          "Entender",
+          "Decidir",
+          "Practicar"
+        ],
+        "sections": [
+          "videoteca",
+          "biblioteca",
+          "recetas"
+        ]
+      }
+    }
+  ],
+  "entries": [
+    {
+      "media": [],
+      "id": "e_rumi",
+      "slug": "rumi",
+      "title": "Rumi",
+      "type": "libro",
+      "summary": "Poeta y místico persa del siglo XIII. Su Masnavi empieza con una flauta de caña que llora.",
+      "author": "Yalal ad-Din Muhammad Rumi",
+      "source": "Masnavi (s. XIII)",
+      "body": "Rumi nació en 1207 en Balj y vivió la mayor parte de su vida en Konya. Su encuentro con el derviche **Shams de Tabriz** transformó a un erudito en poeta.\n\nSu obra mayor, el *Masnavi*, tiene más de veinticinco mil versos. Empieza con una imagen sencilla y enorme: una flauta hecha de caña que canta porque la arrancaron del cañaveral.\n\n> Todo lo que buscas te está buscando.\n\n**Por qué está en mi jardín:** porque me enseñó que la nostalgia también es una brújula.",
+      "universeIds": [
+        "u_sabiduria",
+        "u_biblioteca"
+      ],
+      "tags": [
+        "rumi",
+        "sufismo",
+        "mística",
+        "inspiración"
+      ],
+      "relatedIds": [
+        "e_canto_cana"
+      ],
+      "featured": true,
+      "gardenId": "jardin-personal",
+      "createdAt": "2026-11-04T18:00:00.000Z",
+      "updatedAt": "2026-11-04T18:00:00.000Z"
+    },
+    {
+      "media": [],
+      "id": "e_canto_cana",
+      "slug": "el-canto-de-la-cana",
+      "title": "El canto de la caña",
+      "type": "poema",
+      "summary": "Los primeros versos del Masnavi, en una versión libre: la flauta que canta su separación.",
+      "author": "Rumi (versión libre)",
+      "body": "Escucha a la caña, cómo cuenta su historia,\ncómo se lamenta de la separación:\n\n*Desde que me arrancaron del cañaveral,\nmi queja hace llorar a hombres y mujeres.*\n\n*Busco un pecho desgarrado por la ausencia\npara contarle el dolor del deseo.*\n\n*Quien queda lejos de su origen\nbusca el día de volver a unirse.*\n\n---\n\nLa flauta suena porque está vacía y porque recuerda. Es una imagen del alma, pero también de la música: el aliento atraviesa un hueco y se vuelve canto.",
+      "universeIds": [
+        "u_poesia",
+        "u_sabiduria"
+      ],
+      "tags": [
+        "rumi",
+        "ney",
+        "música",
+        "nostalgia",
+        "aliento"
+      ],
+      "relatedIds": [
+        "e_rumi",
+        "e_ney"
+      ],
+      "featured": true,
+      "gardenId": "jardin-personal",
+      "createdAt": "2026-11-05T01:00:00.000Z",
+      "updatedAt": "2026-11-05T01:00:00.000Z"
+    },
+    {
+      "media": [],
+      "id": "e_ney",
+      "slug": "la-flauta-ney",
+      "title": "La flauta ney: aliento que se vuelve música",
+      "type": "cancion",
+      "summary": "Una caña con siete agujeros y una tradición de mil años. Notas sobre su sonido.",
+      "body": "El **ney** es una flauta de caña de la tradición persa, turca y árabe. No tiene boquilla: el sonido nace del borde y del aliento del intérprete, por eso suena tan cercano a una voz.\n\nEn las ceremonias de los derviches giróvagos el ney abre el *sema*, y muchos músicos dicen que se toca \"con el corazón más que con los pulmones\".\n\n**Para escuchar:** busca grabaciones de *ney taksim* (improvisaciones). Puedes adjuntar aquí audios o videos tuyos desde el área privada.",
+      "universeIds": [
+        "u_poesia"
+      ],
+      "tags": [
+        "música",
+        "ney",
+        "aliento",
+        "inspiración"
+      ],
+      "relatedIds": [
+        "e_canto_cana",
+        "e_inspiracion"
+      ],
+      "gardenId": "jardin-personal",
+      "createdAt": "2026-11-05T08:00:00.000Z",
+      "updatedAt": "2026-11-05T08:00:00.000Z"
+    },
+    {
+      "media": [],
+      "id": "e_inspiracion",
+      "slug": "que-es-la-inspiracion",
+      "title": "¿Qué es la inspiración?",
+      "type": "reflexion",
+      "summary": "Inspirar es, literalmente, tomar aire. Tal vez crear sea solo devolverlo con forma.",
+      "body": "*Inspirar* viene del latín *in-spirare*: soplar dentro. Antes de ser una idea, la inspiración fue aliento.\n\nLa caña de Rumi no canta por sí misma: alguien sopla. Me gusta pensar que crear es parecido. Uno se vacía un poco, deja pasar el aire, y algo suena.\n\nPreguntas que quiero seguir:\n\n- ¿Qué me inspira cuando no estoy buscando inspiración?\n- ¿Qué tienen en común un poema, una ecuación y un jardín?\n- ¿Cómo se ve mi propio cañaveral?",
+      "universeIds": [
+        "u_sabiduria",
+        "u_arte"
+      ],
+      "tags": [
+        "inspiración",
+        "creatividad",
+        "aliento"
+      ],
+      "relatedIds": [
+        "e_ney",
+        "e_mi_cuento_feliz"
+      ],
+      "gardenId": "jardin-personal",
+      "createdAt": "2026-11-05T15:00:00.000Z",
+      "updatedAt": "2026-11-05T15:00:00.000Z"
+    },
+    {
+      "media": [],
+      "id": "e_mi_cuento_feliz",
+      "slug": "mi-cuento-feliz",
+      "title": "Mi Cuento Feliz",
+      "type": "proyecto",
+      "summary": "Un jardín de puertas donde mi conocimiento forma un tejido en lugar de una lista.",
+      "body": "**Primero una semilla. Después un jardín. Y algún día, un bosque entero.**\n\n## Fase 1 — Mi universo personal\nUn lugar para reunir historias, ideas, conocimientos y creaciones, y descubrir los hilos que los unen.\n\n## Lo que viene\n- Habitarlo y llenarlo de contenido.\n- Probar cómo se siente explorar mis propios conocimientos.\n- Algún día: *El Mundo Compartido*, donde otras personas tengan sus jardines.",
+      "universeIds": [
+        "u_ideas",
+        "u_tecnologia"
+      ],
+      "tags": [
+        "jardín",
+        "tejido",
+        "proyecto",
+        "conocimiento"
+      ],
+      "relatedIds": [
+        "e_inspiracion",
+        "e_zettelkasten",
+        "e_mapa_lecturas"
+      ],
+      "featured": true,
+      "gardenId": "jardin-personal",
+      "createdAt": "2026-11-05T22:00:00.000Z",
+      "updatedAt": "2026-11-05T22:00:00.000Z"
+    },
+    {
+      "media": [],
+      "id": "e_zettelkasten",
+      "slug": "zettelkasten-pensar-en-red",
+      "title": "Zettelkasten: pensar en red",
+      "type": "articulo",
+      "summary": "El fichero de Niklas Luhmann: 90.000 notas conectadas que conversaban con su autor.",
+      "author": "Sobre Niklas Luhmann",
+      "body": "El sociólogo Niklas Luhmann escribió decenas de libros con ayuda de un fichero de notas — el *Zettelkasten* — en el que cada ficha remitía a otras.\n\nLa clave no era guardar, sino **conectar**: una nota nueva se colocaba junto a aquella con la que dialogaba, y se anotaban referencias cruzadas.\n\nIdeas que tomo para mi jardín:\n\n1. Una idea por pieza.\n2. Cada pieza enlaza con al menos otra.\n3. Las etiquetas son caminos, no cajones.",
+      "universeIds": [
+        "u_tecnologia",
+        "u_biblioteca",
+        "u_ideas"
+      ],
+      "tags": [
+        "conocimiento",
+        "tejido",
+        "notas",
+        "red"
+      ],
+      "relatedIds": [
+        "e_mi_cuento_feliz",
+        "e_micorrizas"
+      ],
+      "gardenId": "jardin-personal",
+      "createdAt": "2026-11-06T05:00:00.000Z",
+      "updatedAt": "2026-11-06T05:00:00.000Z"
+    },
+    {
+      "media": [],
+      "id": "e_micorrizas",
+      "slug": "la-red-micorricica",
+      "title": "La red micorrícica: el internet del bosque",
+      "type": "articulo",
+      "summary": "Bajo tierra, hongos y raíces forman una red por la que los árboles intercambian agua, azúcares y señales.",
+      "body": "Las **micorrizas** son asociaciones entre hongos y raíces de plantas. Los hilos del hongo (hifas) se extienden por el suelo y conectan árboles entre sí.\n\nPor esa red viajan agua, nutrientes y, según algunas investigaciones, señales químicas. La investigadora **Suzanne Simard** popularizó la idea de los \"árboles madre\" que sostienen a los más jóvenes; hoy parte de esas conclusiones se discuten, pero la red existe y es asombrosa.\n\nUn bosque no es una colección de árboles: es un tejido.",
+      "universeIds": [
+        "u_naturaleza",
+        "u_ciencia"
+      ],
+      "tags": [
+        "red",
+        "árboles",
+        "tejido",
+        "hongos"
+      ],
+      "relatedIds": [
+        "e_zettelkasten",
+        "e_arbol_umbral",
+        "e_redes_neuronales"
+      ],
+      "gardenId": "jardin-personal",
+      "createdAt": "2026-11-06T12:00:00.000Z",
+      "updatedAt": "2026-11-06T12:00:00.000Z"
+    },
+    {
+      "media": [],
+      "id": "e_arbol_umbral",
+      "slug": "el-arbol-al-otro-lado-de-la-puerta",
+      "title": "El árbol al otro lado de la puerta",
+      "type": "reflexion",
+      "summary": "En casi todas las tradiciones hay un árbol en el centro del mundo. En mi jardín está detrás del portal.",
+      "body": "El árbol del mundo aparece en muchas culturas: Yggdrasil en el norte, el ceiba maya, el árbol de la vida en tantas otras.\n\nUne tres planos: las raíces bajo la tierra, el tronco en el mundo de los vivos, la copa en el cielo.\n\nEn la entrada de este jardín, el árbol brilla al otro lado de la puerta. No hay que llegar a él. Basta con saber que está ahí y que cada universo es una rama.",
+      "universeIds": [
+        "u_sabiduria",
+        "u_naturaleza",
+        "u_historias"
+      ],
+      "tags": [
+        "árboles",
+        "umbral",
+        "símbolos"
+      ],
+      "relatedIds": [
+        "e_micorrizas",
+        "e_guardiana"
+      ],
+      "gardenId": "jardin-personal",
+      "createdAt": "2026-11-06T19:00:00.000Z",
+      "updatedAt": "2026-11-06T19:00:00.000Z"
+    },
+    {
+      "media": [],
+      "id": "e_guardiana",
+      "slug": "la-gata-que-custodiaba-la-puerta",
+      "title": "La gata que custodiaba la puerta",
+      "type": "historia",
+      "summary": "Un cuento breve: nadie sabía si la gata negra cuidaba la puerta o esperaba a alguien.",
+      "body": "Cada noche, cuando los faroles se encendían solos, la gata negra subía los escalones y se sentaba frente al portal.\n\nLos visitantes del jardín creían que lo custodiaba. Algunos le pedían permiso para pasar; otros le dejaban pequeñas ofrendas: un hilo de lana, una hoja seca, un poema doblado en cuatro.\n\nElla nunca impedía el paso. Solo miraba el árbol luminoso, como quien recuerda algo.\n\nUna noche alguien le preguntó qué esperaba. La gata giró la cabeza, parpadeó despacio y volvió a mirar la luz.\n\n*— Que alguien entre con una historia nueva* — dijeron después que había dicho. Pero eso ya es otra historia.",
+      "universeIds": [
+        "u_historias"
+      ],
+      "tags": [
+        "cuento",
+        "umbral",
+        "gato",
+        "noche"
+      ],
+      "relatedIds": [
+        "e_arbol_umbral",
+        "e_luna_creciente"
+      ],
+      "featured": true,
+      "gardenId": "jardin-personal",
+      "createdAt": "2026-11-07T02:00:00.000Z",
+      "updatedAt": "2026-11-07T02:00:00.000Z"
+    },
+    {
+      "media": [],
+      "id": "e_luciernagas",
+      "slug": "por-que-brillan-las-luciernagas",
+      "title": "Por qué brillan las luciérnagas",
+      "type": "articulo",
+      "summary": "Bioluminiscencia: luz fría producida por una reacción química casi perfecta.",
+      "body": "Las luciérnagas producen luz gracias a la **luciferina**, una molécula que reacciona con oxígeno con ayuda de la enzima **luciferasa**.\n\nEs una de las fuentes de luz más eficientes que se conocen: casi toda la energía se convierte en luz y apenas en calor.\n\nCada especie tiene su propio patrón de destellos: son mensajes de cortejo. Un jardín de noche está lleno de conversaciones que no entendemos.",
+      "universeIds": [
+        "u_ciencia",
+        "u_naturaleza"
+      ],
+      "tags": [
+        "luz",
+        "bioluminiscencia",
+        "noche",
+        "insectos"
+      ],
+      "relatedIds": [
+        "e_luna_creciente"
+      ],
+      "gardenId": "jardin-personal",
+      "createdAt": "2026-11-07T09:00:00.000Z",
+      "updatedAt": "2026-11-07T09:00:00.000Z"
+    },
+    {
+      "media": [],
+      "id": "e_redes_neuronales",
+      "slug": "redes-neuronales-como-un-jardin",
+      "title": "Redes neuronales explicadas como un jardín",
+      "type": "articulo",
+      "summary": "Conexiones que se refuerzan con el uso: una metáfora para entender cómo aprende una IA.",
+      "body": "Una red neuronal artificial es un conjunto de nodos conectados. Cada conexión tiene un **peso**: un número que dice cuánto importa esa conexión.\n\nAprender consiste en ajustar esos pesos poco a poco, comparando lo que la red predice con lo que debería predecir.\n\n**La metáfora del jardín:** los senderos que más se recorren se vuelven caminos claros; los que nadie pisa se cubren de hierba. No es exacto, pero ayuda a imaginarlo.",
+      "universeIds": [
+        "u_tecnologia",
+        "u_ciencia"
+      ],
+      "tags": [
+        "ia",
+        "red",
+        "aprendizaje",
+        "conocimiento"
+      ],
+      "relatedIds": [
+        "e_micorrizas"
+      ],
+      "gardenId": "jardin-personal",
+      "createdAt": "2026-11-07T16:00:00.000Z",
+      "updatedAt": "2026-11-07T16:00:00.000Z"
+    },
+    {
+      "media": [],
+      "id": "e_luna_creciente",
+      "slug": "luna-creciente",
+      "title": "Luna creciente",
+      "type": "poema",
+      "summary": "Un poema breve sobre la luz que todavía no está completa.",
+      "body": "No es media luna,\nes una luna que empieza.\n\nUna uña de luz\nrascando la noche\npara ver qué hay detrás.\n\nYo también estoy creciendo\npor el lado que no se ve.",
+      "universeIds": [
+        "u_poesia"
+      ],
+      "tags": [
+        "luna",
+        "noche",
+        "luz",
+        "crecer"
+      ],
+      "relatedIds": [
+        "e_guardiana",
+        "e_luciernagas"
+      ],
+      "gardenId": "jardin-personal",
+      "createdAt": "2026-11-07T23:00:00.000Z",
+      "updatedAt": "2026-11-07T23:00:00.000Z"
+    },
+    {
+      "media": [
+        {
+          "id": "m_paleta",
+          "kind": "imagen",
+          "url": "/images/jardin.webp",
+          "caption": "El jardín nocturno"
+        }
+      ],
+      "id": "e_paleta_noche",
+      "slug": "paleta-de-la-noche",
+      "title": "Paleta de la noche: índigo, violeta y oro",
+      "type": "imagen",
+      "summary": "Estudio de color del jardín: los fríos de la noche y los cálidos de los faroles.",
+      "cover": "/images/jardin.webp",
+      "body": "La noche del jardín no es negra: es **índigo** profundo, con **violetas** en las flores y **oro** en cada fuente de luz.\n\n- Índigo: #141a4a\n- Azul profundo: #1d2b6b\n- Violeta: #8f4fd8\n- Oro: #f5c879\n\nEl contraste entre fríos y cálidos es lo que hace que la puerta parezca un lugar al que se quiere entrar.",
+      "universeIds": [
+        "u_arte"
+      ],
+      "tags": [
+        "color",
+        "noche",
+        "luz",
+        "diseño"
+      ],
+      "relatedIds": [
+        "e_mi_cuento_feliz"
+      ],
+      "gardenId": "jardin-personal",
+      "createdAt": "2026-11-08T06:00:00.000Z",
+      "updatedAt": "2026-11-08T06:00:00.000Z"
+    },
+    {
+      "media": [],
+      "id": "e_gutenberg",
+      "slug": "proyecto-gutenberg",
+      "title": "Proyecto Gutenberg",
+      "type": "enlace",
+      "summary": "Más de 70.000 libros de dominio público, libres para leer y descargar.",
+      "externalUrl": "https://www.gutenberg.org",
+      "body": "Una biblioteca enorme y gratuita de clásicos en dominio público. Ideal para encontrar traducciones antiguas de Rumi, cuentos tradicionales y textos científicos históricos.",
+      "universeIds": [
+        "u_biblioteca",
+        "u_historias"
+      ],
+      "tags": [
+        "libros",
+        "dominio público",
+        "biblioteca"
+      ],
+      "relatedIds": [
+        "e_rumi"
+      ],
+      "gardenId": "jardin-personal",
+      "createdAt": "2026-11-08T13:00:00.000Z",
+      "updatedAt": "2026-11-08T13:00:00.000Z"
+    },
+    {
+      "media": [],
+      "id": "e_mapa_lecturas",
+      "slug": "un-mapa-de-lecturas-que-florece",
+      "title": "Un mapa de lecturas que florece",
+      "type": "idea",
+      "summary": "¿Y si cada libro terminado hiciera crecer una flor en el jardín?",
+      "body": "Idea para más adelante: cada libro o referencia que agrego a la biblioteca podría aparecer como una flor en el jardín. Los que más conexiones tienen, más grandes.\n\nPor ahora queda aquí, como semilla.",
+      "universeIds": [
+        "u_ideas",
+        "u_biblioteca"
+      ],
+      "tags": [
+        "jardín",
+        "libros",
+        "idea"
+      ],
+      "relatedIds": [
+        "e_mi_cuento_feliz"
+      ],
+      "gardenId": "jardin-personal",
+      "createdAt": "2026-11-08T20:00:00.000Z",
+      "updatedAt": "2026-11-08T20:00:00.000Z"
+    },
+    {
+      "id": "e_mwjrd41n66o0r3",
+      "gardenId": "jardin-personal",
+      "createdAt": "2026-11-16T21:11:03.611Z",
+      "updatedAt": "2026-11-16T21:12:12.225Z",
+      "slug": "el-dr-andrew-weil-usa-estos-alimentos-como-medicina-para-acabar-con-la-inflamaci",
+      "title": "Alimentos como MEDICINA para ACABAR con LA INFLAMACIÓN",
+      "type": "video",
+      "summary": "Andrew Weil, M.D., es un líder de renombre mundial y pionero en el campo de la medicina integral, un enfoque orientado a la curación del cuidado de la salud que abarca el cuerpo, la mente y el espíritu.",
+      "body": "Tras realizar un internado médico en el Hospital Mt. Zion de San Francisco, trabajó un año en el Instituto Nacional de Salud Mental y luego escribió su primer libro, The Natural Mind.  De 1971 a 1975, fue miembro del Instituto de Asuntos Mundiales Actuales, el Dr. Weil viajó mucho por Africa  y America recopilando información sobre el uso de las drogas en otras culturas, las plantas medicinales y los métodos alternativos de tratamiento de las enfermedades. De 1971 a 1984 formó parte del personal de investigación del Museo Botánico de Harvard y realizó investigaciones sobre plantas medicinales y psicoactivas.\n\nCombinando su formación en Harvard y toda una vida practicando la medicina natural y preventiva, el Dr. Weil es el fundador y director del Centro Andrew Weil de Medicina Integral de la Universidad de Arizona, donde también ocupa la Cátedra Lovell-Jones de Reumatología Integral y es profesor clínico de medicina y profesor de salud pública. El Centro es líder mundial en el desarrollo de un plan de estudios en medicina integrativa. Los graduados son directores de programas de medicina integrativa en todo Estados Unidos y, a través de sus becas, el centro está formando a médicos y enfermeras de todo el mundo.\n\nEl Dr. Weil es un experto reconocido internacionalmente por sus puntos de vista sobre cómo llevar un estilo de vida saludable, su filosofía sobre el envejecimiento saludable y su crítica sobre el futuro de la medicina y la atención sanitaria. El Dr. Weil escribe una columna mensual para la revista Prevention. Conferenciante habitual e invitado en programas de entrevistas, el Dr. Weil es un experto internacionalmente reconocido en plantas medicinales, medicina alternativa y la reforma de la educación médica.",
+      "universeIds": [
+        "u_mwjr0zgyqhsidu"
+      ],
+      "tags": [],
+      "relatedIds": [],
+      "media": [
+        {
+          "id": "m_mwjrcjur3mht0l",
+          "kind": "video",
+          "url": "https://www.youtube.com/watch?v=Had3GWAN0FY",
+          "caption": "El Dr. Andrew Weil usa estos Alimentos como MEDICINA para ACABAR con LA INFLAMACIÓN🧆🍵🥙🔜✨🧘🏻‍♂️"
+        }
+      ],
+      "featured": true
+    },
+    {
+      "id": "e_mwjt145qnladaj",
+      "gardenId": "jardin-personal",
+      "createdAt": "2026-11-16T21:57:43.118Z",
+      "updatedAt": "2026-11-16T21:57:43.118Z",
+      "slug": "la-dieta-de-la-longevidad",
+      "title": "La dieta de la longevidad",
+      "type": "libro",
+      "summary": "Alimentación y ayuno que imita el ayuno para vivir más años con salud.",
+      "body": "**Ideas a explorar:** ayuno que imita el ayuno, alimentación de base vegetal con pescado, ventanas de alimentación.",
+      "universeIds": [
+        "u_mwjr0zgyqhsidu"
+      ],
+      "tags": [
+        "longevidad",
+        "ayuno",
+        "dieta mediterránea"
+      ],
+      "relatedIds": [],
+      "media": [],
+      "author": "Valter Longo",
+      "featured": false,
+      "evidence": "respaldado",
+      "status": "por-ver",
+      "rating": 4.9
+    },
+    {
+      "id": "e_mwjt149491dvyd",
+      "gardenId": "jardin-personal",
+      "createdAt": "2026-11-16T21:57:43.239Z",
+      "updatedAt": "2026-11-16T21:57:43.239Z",
+      "slug": "outlive",
+      "title": "Outlive",
+      "type": "libro",
+      "summary": "La ciencia y el arte de la longevidad: prevenir las enfermedades crónicas antes de que aparezcan.",
+      "body": "**Ideas a explorar:** medicina 3.0, los cuatro jinetes de las enfermedades crónicas, ejercicio como pilar de la longevidad.",
+      "universeIds": [
+        "u_mwjr0zgyqhsidu"
+      ],
+      "tags": [
+        "longevidad",
+        "metabolismo",
+        "ejercicio"
+      ],
+      "relatedIds": [],
+      "media": [],
+      "author": "Peter Attia",
+      "featured": false,
+      "evidence": "respaldado",
+      "status": "viendo",
+      "rating": 4.8
+    },
+    {
+      "id": "e_mwjt14cglr7pjl",
+      "gardenId": "jardin-personal",
+      "createdAt": "2026-11-16T21:57:43.360Z",
+      "updatedAt": "2026-11-16T22:00:44.166Z",
+      "slug": "el-codigo-de-la-obesidad",
+      "title": "El código de la obesidad",
+      "type": "libro",
+      "summary": "El papel de la insulina en el peso y el ayuno intermitente como herramienta.",
+      "body": "Algunas propuestas tienen buen respaldo y otras siguen en debate: leer con mirada crítica.",
+      "universeIds": [
+        "u_mwjr0zgyqhsidu"
+      ],
+      "tags": [
+        "insulina",
+        "ayuno",
+        "metabolismo"
+      ],
+      "relatedIds": [],
+      "media": [],
+      "author": "Jason Fung",
+      "featured": false,
+      "evidence": "prometedor",
+      "status": "por-ver",
+      "rating": 4.7
+    },
+    {
+      "id": "e_mwjt14fwnydynx",
+      "gardenId": "jardin-personal",
+      "createdAt": "2026-11-16T21:57:43.484Z",
+      "updatedAt": "2026-11-16T21:57:43.484Z",
+      "slug": "intestino-sano-mente-sana",
+      "title": "Intestino sano, mente sana",
+      "type": "podcast",
+      "summary": "La conexión entre la microbiota intestinal, la inflamación y el ánimo.",
+      "body": "Notas por completar después de escucharlo.",
+      "universeIds": [
+        "u_mwjr0zgyqhsidu"
+      ],
+      "tags": [
+        "microbiota",
+        "intestino",
+        "antiinflamatoria"
+      ],
+      "relatedIds": [],
+      "media": [],
+      "author": "Carlos Jaramillo",
+      "featured": false,
+      "evidence": "respaldado",
+      "status": "por-ver",
+      "rating": 4.8,
+      "duration": "52:10"
+    },
+    {
+      "id": "e_mwjt14k3sc3ji2",
+      "gardenId": "jardin-personal",
+      "createdAt": "2026-11-16T21:57:43.635Z",
+      "updatedAt": "2026-11-16T21:57:43.635Z",
+      "slug": "comer-para-no-morir",
+      "title": "Comer para no morir",
+      "type": "libro",
+      "summary": "Alimentos de origen vegetal para prevenir las principales causas de enfermedad.",
+      "body": "**Para recordar:** la lista diaria de alimentos (legumbres, bayas, verduras de hoja, frutos secos, especias…).",
+      "universeIds": [
+        "u_mwjr0zgyqhsidu"
+      ],
+      "tags": [
+        "prevención",
+        "alimentos vegetales",
+        "longevidad"
+      ],
+      "relatedIds": [],
+      "media": [],
+      "author": "Michael Greger",
+      "featured": false,
+      "evidence": "respaldado",
+      "status": "visto",
+      "rating": 4.9
+    },
+    {
+      "id": "e_mwjt14nfs5ufi0",
+      "gardenId": "jardin-personal",
+      "createdAt": "2026-11-16T21:57:43.755Z",
+      "updatedAt": "2026-11-16T21:59:43.378Z",
+      "slug": "mis-principios-antiinflamatorios",
+      "title": "Mis principios antiinflamatorios (borrador)",
+      "type": "apunte",
+      "summary": "Lo que voy concluyendo de mis lecturas, para revisar y ajustar.",
+      "body": "## Lo que voy concluyendo\n\n- Más vegetales de colores en cada comida.\n- Grasas de calidad: aceite de oliva, aguacate, frutos secos.\n- Menos ultraprocesados y azúcar añadido.\n- Especias a diario: cúrcuma (con pimienta), jengibre.\n- Cuidar la microbiota: fibra y fermentados.\n\n> Notas personales de aprendizaje, no consejo médico.",
+      "universeIds": [
+        "u_mwjr0zgyqhsidu"
+      ],
+      "tags": [
+        "antiinflamatoria",
+        "principios",
+        "longevidad"
+      ],
+      "relatedIds": [
+        "e_mwjt14k3sc3ji2",
+        "e_mwjt14fwnydynx",
+        "e_mwjrd41n66o0r3"
+      ],
+      "media": [],
+      "featured": false
+    },
+    {
+      "id": "e_mwjt14qiw4r71i",
+      "gardenId": "jardin-personal",
+      "createdAt": "2026-11-16T21:57:43.866Z",
+      "updatedAt": "2026-11-16T21:57:47.326Z",
+      "slug": "bowl-de-quinoa-aguacate-y-tomate",
+      "title": "Bowl de quinoa, aguacate y tomate",
+      "type": "receta",
+      "summary": "Almuerzo colorido y saciante con grasas de calidad y especias.",
+      "body": "## Ingredientes (2 porciones)\n\n- 1 taza de quinoa lavada\n- 1 aguacate\n- 12 tomates cherry\n- 1 puñado de hojas verdes\n- Aceite de oliva, limón, sal, pimienta y una pizca de cúrcuma\n\n## Preparación\n\n1. Cocina la quinoa en 2 tazas de agua durante 15 minutos y deja reposar.\n2. Corta el aguacate y los tomates.\n3. Arma el bowl con las hojas, la quinoa, el aguacate y los tomates.\n4. Aliña con aceite de oliva, limón, sal, pimienta y cúrcuma.",
+      "universeIds": [
+        "u_mwjr0zgyqhsidu"
+      ],
+      "tags": [
+        "almuerzo",
+        "antiinflamatoria",
+        "vegetal"
+      ],
+      "relatedIds": [
+        "e_mwjt14nfs5ufi0"
+      ],
+      "media": [],
+      "featured": false,
+      "duration": "25 min"
+    }
+  ]
+}

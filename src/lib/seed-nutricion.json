@@ -1,0 +1,76 @@
+{
+  "hub": {
+    "title": "Nutrición",
+    "highlight": "Saludable",
+    "subtitle": "Aprende, organiza y aplica el conocimiento de una nutrición antiinflamatoria y de longevidad.",
+    "journey": ["Aprender", "Entender", "Decidir", "Practicar"],
+    "sections": ["videoteca", "biblioteca", "recetas"]
+  },
+  "entries": [
+    {
+      "id": "e_weil_video", "slug": "andrew-weil-alimentos-como-medicina", "type": "video",
+      "title": "El Dr. Andrew Weil usa estos alimentos como medicina",
+      "summary": "Cúrcuma, jengibre y otras especias en una cocina antiinflamatoria.",
+      "author": "Dr. Andrew Weil", "duration": "1:23:42", "rating": 4.8, "status": "por-ver",
+      "body": "Notas por completar después de verlo.\n\nAñade el enlace del video desde el área privada (sección *Imágenes, audios, videos y enlaces*) para que aparezca aquí y en su miniatura.",
+      "tags": ["antiinflamatoria", "especias", "cúrcuma"]
+    },
+    {
+      "id": "e_longo", "slug": "la-dieta-de-la-longevidad", "type": "libro",
+      "title": "La dieta de la longevidad", "author": "Valter Longo",
+      "summary": "Alimentación y ayuno que imita el ayuno para vivir más años con salud.",
+      "evidence": "respaldado", "rating": 4.9, "status": "por-ver",
+      "body": "**Ideas a explorar:** ayuno que imita el ayuno, alimentación de base vegetal con pescado, ventanas de alimentación.",
+      "tags": ["longevidad", "ayuno", "dieta mediterránea"]
+    },
+    {
+      "id": "e_outlive", "slug": "outlive", "type": "libro",
+      "title": "Outlive", "author": "Peter Attia",
+      "summary": "La ciencia y el arte de la longevidad: prevenir las enfermedades crónicas antes de que aparezcan.",
+      "evidence": "respaldado", "rating": 4.8, "status": "viendo",
+      "body": "**Ideas a explorar:** medicina 3.0, los cuatro jinetes de las enfermedades crónicas, ejercicio como pilar de la longevidad.",
+      "tags": ["longevidad", "metabolismo", "ejercicio"]
+    },
+    {
+      "id": "e_fung", "slug": "el-codigo-de-la-obesidad", "type": "libro",
+      "title": "El código de la obesidad", "author": "Jason Fung",
+      "summary": "El papel de la insulina en el peso y el ayuno intermitente como herramienta.",
+      "evidence": "prometedor", "rating": 4.7, "status": "por-ver",
+      "body": "Algunas propuestas tienen buen respaldo y otras siguen en debate: leer con mirada crítica.",
+      "tags": ["insulina", "ayuno", "metabolismo"]
+    },
+    {
+      "id": "e_jaramillo", "slug": "intestino-sano-mente-sana", "type": "podcast",
+      "title": "Intestino sano, mente sana", "author": "Carlos Jaramillo",
+      "summary": "La conexión entre la microbiota intestinal, la inflamación y el ánimo.",
+      "evidence": "respaldado", "rating": 4.8, "duration": "52:10", "status": "por-ver",
+      "body": "Notas por completar después de escucharlo.",
+      "tags": ["microbiota", "intestino", "antiinflamatoria"]
+    },
+    {
+      "id": "e_greger", "slug": "comer-para-no-morir", "type": "libro",
+      "title": "Comer para no morir", "author": "Michael Greger",
+      "summary": "Alimentos de origen vegetal para prevenir las principales causas de enfermedad.",
+      "evidence": "respaldado", "rating": 4.9, "status": "visto",
+      "body": "**Para recordar:** la lista diaria de alimentos (legumbres, bayas, verduras de hoja, frutos secos, especias…).",
+      "tags": ["prevención", "alimentos vegetales", "longevidad"]
+    },
+    {
+      "id": "e_principios", "slug": "mis-principios-antiinflamatorios", "type": "apunte",
+      "title": "Mis principios antiinflamatorios (borrador)",
+      "summary": "Lo que voy concluyendo de mis lecturas, para revisar y ajustar.",
+      "body": "## Lo que voy concluyendo\n\n- Más vegetales de colores en cada comida.\n- Grasas de calidad: aceite de oliva, aguacate, frutos secos.\n- Menos ultraprocesados y azúcar añadido.\n- Especias a diario: cúrcuma (con pimienta), jengibre.\n- Cuidar la microbiota: fibra y fermentados.\n\n> Notas personales de aprendizaje, no consejo médico.",
+      "tags": ["antiinflamatoria", "principios", "longevidad"],
+      "relatedIds": ["e_weil_video", "e_greger", "e_jaramillo"]
+    },
+    {
+      "id": "e_bowl_quinoa", "slug": "bowl-de-quinoa-aguacate-y-tomate", "type": "receta",
+      "title": "Bowl de quinoa, aguacate y tomate",
+      "summary": "Almuerzo colorido y saciante con grasas de calidad y especias.",
+      "duration": "25 min",
+      "body": "## Ingredientes (2 porciones)\n\n- 1 taza de quinoa lavada\n- 1 aguacate\n- 12 tomates cherry\n- 1 puñado de hojas verdes\n- Aceite de oliva, limón, sal, pimienta y una pizca de cúrcuma\n\n## Preparación\n\n1. Cocina la quinoa en 2 tazas de agua durante 15 minutos y deja reposar.\n2. Corta el aguacate y los tomates.\n3. Arma el bowl con las hojas, la quinoa, el aguacate y los tomates.\n4. Aliña con aceite de oliva, limón, sal, pimienta y cúrcuma.",
+      "tags": ["almuerzo", "antiinflamatoria", "vegetal"],
+      "relatedIds": ["e_principios"]
+    }
+  ]
+}

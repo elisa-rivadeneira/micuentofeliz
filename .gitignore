@@ -1,0 +1,8 @@
+node_modules
+.next
+next-env.d.ts
+*.tsbuildinfo
+.env*.local
+# Contenido personal (base de datos local y archivos subidos)
+data/
+.next-prod

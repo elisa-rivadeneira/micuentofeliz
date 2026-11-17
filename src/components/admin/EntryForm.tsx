@@ -11,7 +11,7 @@ import { TYPE_LABELS, EVIDENCE_LABELS, STATUS_LABELS } from "@/lib/labels";
 import { normalizeTag, newId } from "@/lib/util";
 import { searchUrls } from "@/lib/shop";
 import { SymbolIcon } from "@/lib/symbols";
-import { Prose } from "../Prose";
+import { MarkdownEditor } from "./MarkdownEditor";
 import { TypeIcon } from "../TypeIcon";
 import { api, uploadFile } from "./api";
 
@@ -35,7 +35,6 @@ export function EntryForm({ entry, universes, entries, presetUniverse, presetTyp
   );
   const [tagDraft, setTagDraft] = useState("");
   const [relQuery, setRelQuery] = useState("");
-  const [preview, setPreview] = useState(false);
   const [saving, setSaving] = useState(false);
   const [uploading, setUploading] = useState<string | null>(null);
   const [error, setError] = useState("");
@@ -147,15 +146,8 @@ export function EntryForm({ entry, universes, entries, presetUniverse, presetTyp
           </label>
 
           <div className="field">
-            <div className="field__row">
-              <span>Cuerpo <small>(Markdown: **negrita**, *cursiva*, ## título, &gt; cita, - lista)</small></span>
-              <button type="button" className="ghost-link" onClick={() => setPreview((p) => !p)}><Eye size={14} /> {preview ? "Editar" : "Vista previa"}</button>
-            </div>
-            {preview ? (
-              <div className="preview"><Prose body={f.body || "*Nada todavía…*"} verse={f.type === "poema" || f.type === "cancion"} /></div>
-            ) : (
-              <textarea rows={16} value={f.body} onChange={(e) => set("body", e.target.value)} className="input input--mono" />
-            )}
+            <span>Cuerpo</span>
+            <MarkdownEditor value={f.body} onChange={(v) => set("body", v)} verse={f.type === "poema" || f.type === "cancion"} />
           </div>
 
           <div className="field">

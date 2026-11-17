@@ -681,3 +681,43 @@ textarea.input { resize: vertical; }
   .entry__head--book { grid-template-columns: 96px minmax(0, 1fr); gap: 1rem; }
   .entry__bookcover { width: 96px; }
 }
+
+/* ───────────── Editor de contenido ───────────── */
+.mde { border-radius: 14px; border: 1px solid rgba(201, 167, 255, 0.28); background: rgba(8, 10, 34, 0.7); overflow: hidden; transition: border-color 0.2s, box-shadow 0.2s; }
+.mde:focus-within { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(245, 200, 121, 0.12); }
+.mde.is-drag { border-color: var(--violet-soft); box-shadow: 0 0 0 3px rgba(143, 79, 216, 0.35); }
+.mde__bar { position: sticky; top: 64px; z-index: 3; display: flex; flex-wrap: wrap; align-items: center; gap: 2px; padding: 0.4rem; background: rgba(16, 16, 52, 0.96); border-bottom: 1px solid rgba(201, 167, 255, 0.18); font-family: var(--sans); }
+.mde__toolwrap { display: inline-flex; align-items: center; }
+.mde__sep { width: 1px; height: 20px; margin: 0 4px; background: rgba(255, 255, 255, 0.14); }
+.mde__tool { display: inline-flex; align-items: center; gap: 0.35rem; height: 34px; min-width: 34px; padding: 0 0.5rem; justify-content: center; border-radius: 8px; color: #ddd6ee; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: background 0.2s, color 0.2s; }
+.mde__tool:hover { background: rgba(255, 255, 255, 0.09); color: #fff; }
+.mde__tool--prompt { color: #e3cfff; background: rgba(143, 79, 216, 0.25); margin-left: 4px; }
+.mde__tool--prompt:hover { background: rgba(143, 79, 216, 0.45); }
+.mde__tool--img { color: #ffe2a8; background: rgba(245, 200, 121, 0.12); margin-left: 4px; }
+.mde__tool--img:hover { background: rgba(245, 200, 121, 0.24); }
+.mde__spacer { flex: 1; }
+.mde__modes { display: inline-flex; padding: 2px; border-radius: 9px; background: rgba(255, 255, 255, 0.06); }
+.mde__modes button { display: grid; place-items: center; width: 32px; height: 28px; border-radius: 7px; color: var(--muted); }
+.mde__modes button.is-on { background: rgba(143, 79, 216, 0.55); color: #fff; }
+.mde__panes { display: grid; grid-template-columns: 1fr; min-height: 380px; }
+.mde--dividido .mde__panes { grid-template-columns: 1fr 1fr; }
+.mde__text { width: 100%; min-height: 380px; height: 100%; resize: vertical; padding: 1rem 1.1rem; border: 0; outline: 0; background: transparent; color: var(--text); font-family: ui-monospace, "Cascadia Code", Consolas, monospace; font-size: 0.93rem; line-height: 1.65; tab-size: 2; }
+.mde__preview { padding: 0.9rem 1.2rem; max-height: 70vh; overflow: auto; border-left: 1px solid rgba(201, 167, 255, 0.15); }
+.mde--vista .mde__preview { border-left: 0; max-height: none; }
+.mde__preview .prose { font-size: 1.02rem; }
+.mde__note { margin: 0; padding: 0.4rem 1rem; font-family: var(--sans); font-size: 0.8rem; color: var(--gold-soft); }
+@media (max-width: 900px) { .mde--dividido .mde__panes { grid-template-columns: 1fr; } .mde__preview { border-left: 0; border-top: 1px solid rgba(201, 167, 255, 0.15); } }
+
+/* ───────────── Bloques de código y prompts ───────────── */
+.prose .codeblock { margin: 1.4em 0; border-radius: 14px; overflow: hidden; border: 1px solid rgba(201, 167, 255, 0.25); background: #0b0c26; box-shadow: 0 12px 30px -16px rgba(0, 0, 0, 0.7); font-family: var(--sans); }
+.codeblock__bar { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.4rem 0.5rem 0.4rem 0.9rem; background: rgba(255, 255, 255, 0.05); border-bottom: 1px solid rgba(255, 255, 255, 0.07); }
+.codeblock__lang { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.76rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.codeblock__copy { display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.35rem 0.8rem; border-radius: 999px; font-size: 0.82rem; font-weight: 600; color: #fff; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.15); cursor: pointer; transition: background 0.2s; }
+.codeblock__copy:hover { background: rgba(255, 255, 255, 0.2); }
+.prose .codeblock pre { margin: 0; padding: 1rem 1.1rem; overflow-x: auto; font-family: ui-monospace, "Cascadia Code", Consolas, monospace; font-size: 0.9rem; line-height: 1.6; color: #e9e6f7; white-space: pre; }
+.prose .codeblock pre code { background: none; padding: 0; font-size: inherit; }
+.prose .codeblock--prompt { border-color: rgba(185, 138, 255, 0.55); background: linear-gradient(180deg, rgba(60, 34, 130, 0.55), rgba(20, 16, 60, 0.85)); box-shadow: 0 0 24px rgba(143, 79, 216, 0.25); }
+.codeblock--prompt .codeblock__lang { color: #e3cfff; }
+.codeblock--prompt .codeblock__copy { background: linear-gradient(135deg, #b06bff, #7c4dff); border-color: transparent; }
+.prose .codeblock--prompt pre { white-space: pre-wrap; font-family: var(--sans); font-size: 0.96rem; line-height: 1.65; color: #f4efff; }
+.prose__img { display: block; max-width: 100%; height: auto; margin: 1.4em auto; border-radius: 14px; border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 16px 40px -18px rgba(0, 0, 0, 0.7); }

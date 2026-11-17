@@ -48,6 +48,8 @@ Fondo opcional: `public/images/amanecer-fondo.(webp|jpg|png)`; si no existe se d
 
 ## Datos
 
+> Publicación automática: cada `git push` a `main` despliega en Easypanel (webhook de GitHub).
+
 - Todo se guarda en `data/db.json` (se crea con el contenido semilla la primera vez).
 - Los archivos subidos van a `data/uploads/` y se sirven desde `/media/...`.
 - Para volver al contenido semilla: `npm run reset-data` (¡borra tu contenido!).

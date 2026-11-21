@@ -105,6 +105,10 @@
 .gx__world:hover { color: #fff; border-color: rgba(200, 215, 255, 0.8); box-shadow: 0 0 16px rgba(140, 160, 255, 0.35); }
 
 /* ───────────── Tarjeta holográfica ───────────── */
+/* Zona de clic fija: no se transforma, así el hover no parpadea. */
+.holo-hit { position: relative; cursor: pointer; border-radius: 30px; -webkit-tap-highlight-color: transparent; }
+.holo-hit:focus-visible { outline: none; }
+.holo-hit > .holo { pointer-events: none; }
 .holo {
   --lift: 0px;
   position: relative;
@@ -125,9 +129,9 @@
   container-type: inline-size;
 }
 .holo:not(.is-active) { filter: saturate(0.9) brightness(0.92); }
-.holo:not(.is-active):hover { --lift: -8px; filter: brightness(1.15) saturate(1.05); box-shadow: 0 34px 60px -24px rgba(0, 0, 0, 0.7), 0 0 50px rgba(var(--c), 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.3); }
+.holo-hit:hover > .holo:not(.is-active) { --lift: -8px; filter: brightness(1.15) saturate(1.05); box-shadow: 0 34px 60px -24px rgba(0, 0, 0, 0.7), 0 0 50px rgba(var(--c), 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.3); }
 .holo.is-active { box-shadow: 0 40px 80px -30px rgba(0, 0, 0, 0.8), 0 0 70px rgba(var(--c), 0.55), 0 0 140px rgba(var(--c), 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.35), inset 0 0 50px rgba(var(--g), 0.12); }
-.holo.is-active:hover { --lift: -4px; }
+.holo-hit:hover > .holo.is-active { --lift: -4px; }
 
 .holo__border { position: absolute; inset: 0; border-radius: inherit; padding: 2px; filter: drop-shadow(0 0 4px rgba(var(--c), 0.8)); pointer-events: none;
   background: linear-gradient(160deg, rgba(var(--g), 1), rgba(var(--c), 0.35) 38%, rgba(255, 255, 255, 0.12) 60%, rgba(var(--c), 0.95));
@@ -161,7 +165,7 @@
 
 /* ───────────── Animaciones de ilustraciones ───────────── */
 .ill * { animation-play-state: paused; }
-.holo.is-active .ill *, .holo:hover .ill * { animation-play-state: running; }
+.holo.is-active .ill *, .holo-hit:hover .ill * { animation-play-state: running; }
 .ill-aura { transform-box: fill-box; transform-origin: center; animation: illAura 5s ease-in-out infinite; }
 @keyframes illAura { 0%, 100% { opacity: 0.75; transform: scale(0.96); } 50% { opacity: 1; transform: scale(1.04); } }
 .ill-float { animation: illFloat 6s ease-in-out infinite; }
@@ -265,7 +269,7 @@
 
 /* Ilustración propia del universo (imagen con fondo transparente). */
 .holo__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; pointer-events: none; filter: drop-shadow(0 0 18px rgba(var(--c), 0.45)) drop-shadow(0 10px 18px rgba(0, 0, 0, 0.35)); animation: illFloat 6s ease-in-out infinite; animation-play-state: paused; }
-.holo.is-active .holo__img, .holo:hover .holo__img { animation-play-state: running; }
+.holo.is-active .holo__img, .holo-hit:hover .holo__img { animation-play-state: running; }
 
 /* Tarjeta solo con ilustración y título: más aire para la imagen. */
 .holo { padding-top: calc(var(--cw) * 0.07); }

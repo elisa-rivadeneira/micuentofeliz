@@ -42,10 +42,10 @@ export function HoloCard({ universe: u, index, total, count, active, onSelect, o
   };
 
   return (
+    // La zona de clic (holo-hit) no se mueve; solo la tarjeta visual de dentro se eleva e inclina.
+    // Así el cursor no "pierde" la tarjeta y un solo clic basta.
     <div
-      ref={inner}
-      className={`holo ${active ? "is-active" : ""}`}
-      style={{ ["--c" as string]: hexToRgb(u.color), ["--g" as string]: hexToRgb(u.glow) }}
+      className={`holo-hit ${active ? "is-active" : ""}`}
       onPointerMove={onMove}
       onPointerLeave={onLeave}
       onClick={() => onEnter()}
@@ -62,6 +62,11 @@ export function HoloCard({ universe: u, index, total, count, active, onSelect, o
       aria-label={`${u.name}, universo ${index + 1} de ${total}, ${count} ${count === 1 ? "pieza" : "piezas"}. Entrar`}
       title={`Entrar a ${u.name}`}
     >
+     <div
+      ref={inner}
+      className={`holo ${active ? "is-active" : ""}`}
+      style={{ ["--c" as string]: hexToRgb(u.color), ["--g" as string]: hexToRgb(u.glow) }}
+     >
       <span className="holo__border" aria-hidden />
       <span className="holo__sheen" aria-hidden />
       <div className="holo__art">
@@ -74,6 +79,7 @@ export function HoloCard({ universe: u, index, total, count, active, onSelect, o
       </div>
       <h2 className="holo__title">{u.name}</h2>
       <span className="holo__reflection" aria-hidden />
+     </div>
     </div>
   );
 }
